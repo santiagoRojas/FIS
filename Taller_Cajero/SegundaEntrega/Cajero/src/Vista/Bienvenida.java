@@ -28,87 +28,81 @@ public class Bienvenida extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        RestoNIT = new javax.swing.JTextField();
+        Titulo = new javax.swing.JLabel();
+        IngreseNIT = new javax.swing.JLabel();
+        Aceptar = new javax.swing.JButton();
+        PrimerDigitoNIT = new javax.swing.JTextField();
+        Separador = new javax.swing.JLabel();
+        Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(338, 338));
+        setMinimumSize(new java.awt.Dimension(338, 338));
+        setPreferredSize(new java.awt.Dimension(338, 338));
+        getContentPane().setLayout(null);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        RestoNIT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                RestoNITActionPerformed(evt);
             }
         });
+        getContentPane().add(RestoNIT);
+        RestoNIT.setBounds(50, 230, 88, 20);
 
-        jLabel1.setText("BIENVENIDO A SU BANCO PREFERIDO");
+        Titulo.setText("BIENVENIDO A SU BANCO PREFERIDO");
+        getContentPane().add(Titulo);
+        Titulo.setBounds(60, 10, 250, 20);
 
-        jLabel2.setText("Ingrese Nit Tarjeta: ");
+        IngreseNIT.setText("Ingrese Nit Tarjeta: ");
+        getContentPane().add(IngreseNIT);
+        IngreseNIT.setBounds(10, 190, 110, 30);
 
-        jButton1.setText("ACEPTAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Aceptar.setText("ACEPTAR");
+        Aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                AceptarActionPerformed(evt);
             }
         });
+        getContentPane().add(Aceptar);
+        Aceptar.setBounds(210, 220, 100, 20);
 
-        jLabel3.setText("-");
+        PrimerDigitoNIT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PrimerDigitoNITActionPerformed(evt);
+            }
+        });
+        getContentPane().add(PrimerDigitoNIT);
+        PrimerDigitoNIT.setBounds(20, 230, 19, 20);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(108, 108, 108)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
-                        .addComponent(jButton1)))
-                .addContainerGap(107, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(85, 85, 85)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(59, 59, 59)
-                .addComponent(jButton1)
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
+        Separador.setText("-");
+        getContentPane().add(Separador);
+        Separador.setBounds(40, 230, 10, 14);
+
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.jpg"))); // NOI18N
+        Fondo.setMaximumSize(new java.awt.Dimension(338, 338));
+        Fondo.setPreferredSize(new java.awt.Dimension(338, 338));
+        getContentPane().add(Fondo);
+        Fondo.setBounds(0, 0, 340, 350);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void RestoNITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RestoNITActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_RestoNITActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
         try {
             
         } catch (Exception e) {
             
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_AceptarActionPerformed
+
+    private void PrimerDigitoNITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrimerDigitoNITActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PrimerDigitoNITActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,11 +140,12 @@ public class Bienvenida extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton Aceptar;
+    private javax.swing.JLabel Fondo;
+    private javax.swing.JLabel IngreseNIT;
+    private javax.swing.JTextField PrimerDigitoNIT;
+    private javax.swing.JTextField RestoNIT;
+    private javax.swing.JLabel Separador;
+    private javax.swing.JLabel Titulo;
     // End of variables declaration//GEN-END:variables
 }
