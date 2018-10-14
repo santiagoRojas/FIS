@@ -27,18 +27,38 @@ public class IngresarNIT extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        OK = new javax.swing.JButton();
+        RestoNIT = new javax.swing.JTextField();
+        PrimerDigito = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        VOLVER = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(450, 334));
+        setMinimumSize(new java.awt.Dimension(450, 334));
+        getContentPane().setLayout(null);
+
+        OK.setText("OK");
+        getContentPane().add(OK);
+        OK.setBounds(40, 240, 70, 40);
+        getContentPane().add(RestoNIT);
+        RestoNIT.setBounds(240, 250, 190, 30);
+        getContentPane().add(PrimerDigito);
+        PrimerDigito.setBounds(180, 250, 40, 30);
+
+        jLabel2.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        jLabel2.setText("DIGITE EL NIT");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(140, 70, 180, 40);
+
+        VOLVER.setText("VOLVER");
+        getContentPane().add(VOLVER);
+        VOLVER.setBounds(20, 30, 80, 30);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Digite.jpg"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 450, 340);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -79,5 +99,11 @@ public class IngresarNIT extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton OK;
+    private javax.swing.JTextField PrimerDigito;
+    private javax.swing.JTextField RestoNIT;
+    private javax.swing.JButton VOLVER;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
