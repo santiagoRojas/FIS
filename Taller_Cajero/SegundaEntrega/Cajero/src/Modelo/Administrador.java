@@ -12,7 +12,7 @@ package Modelo;
 public class Administrador {
     private String nombre;
     private String apellido;
-    private boolean estadoTerjeta;
+    private boolean estadoTarjeta;
     private int id;
     private int nit;
 
@@ -32,12 +32,12 @@ public class Administrador {
         this.apellido = apellido;
     }
 
-    public boolean isEstadoTerjeta() {
-        return estadoTerjeta;
+    public boolean isEstadoTarjeta() {
+        return estadoTarjeta;
     }
 
-    public void setEstadoTerjeta(boolean estadoTerjeta) {
-        this.estadoTerjeta = estadoTerjeta;
+    public void setEstadoTarjeta(boolean estadoTerjeta) {
+        this.estadoTarjeta = estadoTerjeta;
     }
 
     public int getId() {

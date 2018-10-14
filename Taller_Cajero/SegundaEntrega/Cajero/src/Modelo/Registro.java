@@ -17,7 +17,16 @@ public class Registro {
     private int montoRetirado;
     private int nitTarjetaUsuario;
     private String nombreUsuario;
+    private int idCajero;
 
+    public int getIdCajero() {
+        return idCajero;
+    }
+
+    public void setIdCajero(int idCajero) {
+        this.idCajero = idCajero;
+    }
+    
     public Date getFecha() {
         return fecha;
     }
