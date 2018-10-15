@@ -5,6 +5,8 @@
  */
 package Vista;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Estudiantes
@@ -12,6 +14,7 @@ package Vista;
 public class Bienvenida extends javax.swing.JFrame {
 
     private int nit;
+    private int tipo;
     /**
      * Creates new form Bienvenida
      */
@@ -47,8 +50,13 @@ public class Bienvenida extends javax.swing.JFrame {
                 RestoNITActionPerformed(evt);
             }
         });
+        RestoNIT.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                RestoNITKeyTyped(evt);
+            }
+        });
         getContentPane().add(RestoNIT);
-        RestoNIT.setBounds(50, 230, 88, 20);
+        RestoNIT.setBounds(50, 230, 88, 40);
 
         Titulo.setText("BIENVENIDO A SU BANCO PREFERIDO");
         getContentPane().add(Titulo);
@@ -65,23 +73,26 @@ public class Bienvenida extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Aceptar);
-        Aceptar.setBounds(210, 220, 100, 20);
+        Aceptar.setBounds(210, 220, 100, 30);
 
         PrimerDigitoNIT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PrimerDigitoNITActionPerformed(evt);
             }
         });
+        PrimerDigitoNIT.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PrimerDigitoNITKeyTyped(evt);
+            }
+        });
         getContentPane().add(PrimerDigitoNIT);
-        PrimerDigitoNIT.setBounds(20, 230, 19, 20);
+        PrimerDigitoNIT.setBounds(20, 230, 19, 40);
 
         Separador.setText("-");
         getContentPane().add(Separador);
-        Separador.setBounds(40, 230, 10, 14);
+        Separador.setBounds(40, 240, 10, 14);
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.jpg"))); // NOI18N
-        Fondo.setMaximumSize(new java.awt.Dimension(338, 338));
-        Fondo.setPreferredSize(new java.awt.Dimension(338, 338));
         getContentPane().add(Fondo);
         Fondo.setBounds(0, 0, 340, 350);
 
@@ -93,16 +104,43 @@ public class Bienvenida extends javax.swing.JFrame {
     }//GEN-LAST:event_RestoNITActionPerformed
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
-        try {
-            
-        } catch (Exception e) {
-            
+        
+        if(PrimerDigitoNIT.getText().length()==1 && RestoNIT.getText().length()==7){
+            nit=Integer.parseInt(RestoNIT.getText());
+            tipo=Integer.parseInt(PrimerDigitoNIT.getText());
+            if(tipo==1){
+                //validar si es cliente si lo 
+                /*MenuCliente menu=new MenuCliente();
+                menu.setVisible(true);
+                this.setVisible(false);*/
+                
+            }else{
+                //validar si es admin
+                /*MenuAdmin menu=new MenuAdmin();
+                menu.setVisible(true);
+                this.setVisible(false);*/
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "NIT invalido");
+            JOptionPane.showMessageDialog(null, "FORMATO: X-XXXXXXX");
         }
     }//GEN-LAST:event_AceptarActionPerformed
 
     private void PrimerDigitoNITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrimerDigitoNITActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PrimerDigitoNITActionPerformed
+
+    private void RestoNITKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RestoNITKeyTyped
+        char c=evt.getKeyChar();
+        if(c<'0'||c>'9')evt.consume();
+        if (RestoNIT.getText().length()== 7)evt.consume();
+    }//GEN-LAST:event_RestoNITKeyTyped
+
+    private void PrimerDigitoNITKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PrimerDigitoNITKeyTyped
+        char c=evt.getKeyChar();
+        if(c<'1'||c>'2')evt.consume();
+        if (PrimerDigitoNIT.getText().length()== 1)evt.consume();
+    }//GEN-LAST:event_PrimerDigitoNITKeyTyped
 
     /**
      * @param args the command line arguments

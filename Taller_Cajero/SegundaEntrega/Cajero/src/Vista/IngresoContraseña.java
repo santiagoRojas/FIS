@@ -5,12 +5,15 @@
  */
 package Vista;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jeisson
  */
 public class IngresoContraseña extends javax.swing.JFrame {
 
+    private int Contra;
     /**
      * Creates new form IngresoContraseña
      */
@@ -27,21 +30,76 @@ public class IngresoContraseña extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        Volver = new javax.swing.JButton();
+        Contraseña = new javax.swing.JTextField();
+        Ok = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(450, 350));
+        setMinimumSize(new java.awt.Dimension(450, 350));
+        setPreferredSize(new java.awt.Dimension(450, 350));
+        getContentPane().setLayout(null);
+
+        Volver.setText("VOLVER");
+        Volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VolverActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Volver);
+        Volver.setBounds(20, 50, 110, 40);
+
+        Contraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ContraseñaKeyTyped(evt);
+            }
+        });
+        getContentPane().add(Contraseña);
+        Contraseña.setBounds(230, 240, 80, 60);
+
+        Ok.setText("OK");
+        Ok.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OkActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Ok);
+        Ok.setBounds(40, 253, 70, 50);
+
+        jLabel2.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        jLabel2.setText("DIGITE SU CONTRASEÑA");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(10, 110, 260, 70);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Digite.jpg"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, -10, 500, 360);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VolverActionPerformed
+
+    private void ContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContraseñaKeyTyped
+        char c=evt.getKeyChar();
+        if(c<'0'||c>'9')evt.consume();
+        if (Contraseña.getText().length()== 4)evt.consume();
+    }//GEN-LAST:event_ContraseñaKeyTyped
+
+    private void OkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OkActionPerformed
+        if(Contraseña.getText().length()==4){
+            Contra=Integer.parseInt(Contraseña.getText());
+            //ValidarContraseña
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Contraseña invalida");
+            JOptionPane.showMessageDialog(null, "FORMATO: XXXX");
+        }
+    }//GEN-LAST:event_OkActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +137,10 @@ public class IngresoContraseña extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Contraseña;
+    private javax.swing.JButton Ok;
+    private javax.swing.JButton Volver;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

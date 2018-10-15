@@ -5,12 +5,16 @@
  */
 package Vista;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jeisson
  */
 public class IngresarNIT extends javax.swing.JFrame {
 
+    private int primer;
+    private int resto;
     /**
      * Creates new form IngresarNIT
      */
@@ -40,17 +44,34 @@ public class IngresarNIT extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         OK.setText("OK");
+        OK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OKActionPerformed(evt);
+            }
+        });
         getContentPane().add(OK);
         OK.setBounds(40, 240, 70, 40);
+
+        RestoNIT.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                RestoNITKeyTyped(evt);
+            }
+        });
         getContentPane().add(RestoNIT);
         RestoNIT.setBounds(240, 250, 190, 30);
+
+        PrimerDigito.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PrimerDigitoKeyTyped(evt);
+            }
+        });
         getContentPane().add(PrimerDigito);
         PrimerDigito.setBounds(180, 250, 40, 30);
 
-        jLabel2.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
         jLabel2.setText("DIGITE EL NIT");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(140, 70, 180, 40);
+        jLabel2.setBounds(10, 140, 180, 40);
 
         VOLVER.setText("VOLVER");
         getContentPane().add(VOLVER);
@@ -62,6 +83,30 @@ public class IngresarNIT extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void RestoNITKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RestoNITKeyTyped
+        char c=evt.getKeyChar();
+        if(c<'0'||c>'9')evt.consume();
+        if (RestoNIT.getText().length()== 7)evt.consume();
+        
+    }//GEN-LAST:event_RestoNITKeyTyped
+
+    private void PrimerDigitoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PrimerDigitoKeyTyped
+        char c=evt.getKeyChar();
+        if(c<'1'||c>'2')evt.consume();
+        if (PrimerDigito.getText().length()== 1)evt.consume();
+    }//GEN-LAST:event_PrimerDigitoKeyTyped
+
+    private void OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKActionPerformed
+        
+        if(PrimerDigito.getText().length()==1 && RestoNIT.getText().length()==7){
+        primer=Integer.parseInt(PrimerDigito.getText());
+        resto=Integer.parseInt(RestoNIT.getText());
+        }else{
+            JOptionPane.showMessageDialog(null, "NIT invalido");
+            JOptionPane.showMessageDialog(null, "FORMATO: X-XXXXXXX");
+        }
+    }//GEN-LAST:event_OKActionPerformed
 
     /**
      * @param args the command line arguments

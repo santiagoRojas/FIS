@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/TOSHIBA/Downloads/FIS/FIS-master/Taller_Cajero/SegundaEntrega/Cajero/src/Controlador/DAO/HistorialDAO.java</file>
-            <file>file:/C:/Users/TOSHIBA/Downloads/FIS/FIS-master/Taller_Cajero/SegundaEntrega/Cajero/src/Controlador/DAO/TarjetaClienteDAO.java</file>
-            <file>file:/C:/Users/TOSHIBA/Downloads/FIS/FIS-master/Taller_Cajero/SegundaEntrega/Cajero/src/Controlador/DAO/EstudianteDAO.java</file>
-            <file>file:/C:/Users/TOSHIBA/Downloads/FIS/FIS-master/Taller_Cajero/SegundaEntrega/Cajero/src/Controlador/DAO/EstadoCajeroDAO.java</file>
-            <file>file:/C:/Users/TOSHIBA/Downloads/FIS/FIS-master/Taller_Cajero/SegundaEntrega/Cajero/src/Controlador/DAO/TarjetaAdmisDAO.java</file>
+            <file>file:/C:/Users/Jeisson/Desktop/SegundaEntrega/Cajero/src/Vista/IngresarNIT.java</file>
+            <file>file:/C:/Users/Jeisson/Desktop/SegundaEntrega/Cajero/src/Vista/IngresoContraseña.java</file>
+            <file>file:/C:/Users/Jeisson/Desktop/SegundaEntrega/Cajero/src/Vista/IngresarMonto.java</file>
+            <file>file:/C:/Users/Jeisson/Desktop/SegundaEntrega/Cajero/src/Vista/Bienvenida.java</file>
         </group>
     </open-files>
 </project-private>

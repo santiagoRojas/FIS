@@ -5,11 +5,15 @@
  */
 package Vista;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jeisson
  */
 public class IngresarMonto extends javax.swing.JFrame {
+    
+    private int cantidad;
 
     /**
      * Creates new form IngresarMonto
@@ -27,21 +31,63 @@ public class IngresarMonto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        Volver = new javax.swing.JButton();
+        OK = new javax.swing.JButton();
+        Monto = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(450, 334));
+        setMinimumSize(new java.awt.Dimension(450, 334));
+        getContentPane().setLayout(null);
+
+        Volver.setLabel("VOLVER");
+        getContentPane().add(Volver);
+        Volver.setBounds(40, 50, 90, 40);
+
+        OK.setText("OK");
+        OK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OKActionPerformed(evt);
+            }
+        });
+        getContentPane().add(OK);
+        OK.setBounds(50, 230, 80, 50);
+
+        Monto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                MontoKeyTyped(evt);
+            }
+        });
+        getContentPane().add(Monto);
+        Monto.setBounds(210, 240, 130, 40);
+
+        jLabel2.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
+        jLabel2.setText("DIGITE LA CANTIDAD");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(10, 100, 260, 90);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Digite.jpg"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 490, 350);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void MontoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MontoKeyTyped
+        char c=evt.getKeyChar();
+        if(c<'0'||c>'9')evt.consume();
+    }//GEN-LAST:event_MontoKeyTyped
+
+    private void OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKActionPerformed
+        if(Monto.getText().length()>0){
+        cantidad=Integer.parseInt(Monto.getText());
+        }else{
+            JOptionPane.showMessageDialog(null, "Digite por favor un valor");
+        }
+        
+    }//GEN-LAST:event_OKActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +125,10 @@ public class IngresarMonto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Monto;
+    private javax.swing.JButton OK;
+    private javax.swing.JButton Volver;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }
