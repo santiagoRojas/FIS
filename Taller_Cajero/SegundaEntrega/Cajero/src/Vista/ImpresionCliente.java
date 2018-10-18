@@ -5,16 +5,26 @@
  */
 package Vista;
 
+import Modelo.Cliente;
+
 /**
  *
  * @author Jeisson
  */
 public class ImpresionCliente extends javax.swing.JFrame {
 
+    private Cliente user;
+    private int monto;
     /**
      * Creates new form ImpresionCliente
      */
     public ImpresionCliente() {
+        initComponents();
+    }
+    
+    public ImpresionCliente(Cliente user, int monto) {
+        this.user=user;
+        this.monto=monto;
         initComponents();
     }
 

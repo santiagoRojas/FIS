@@ -5,6 +5,9 @@
  */
 package Vista;
 
+import Controlador.Consultas;
+import Modelo.Administrador;
+import Modelo.Cliente;
 import javax.swing.JOptionPane;
 
 /**
@@ -110,15 +113,33 @@ public class Bienvenida extends javax.swing.JFrame {
             tipo=Integer.parseInt(PrimerDigitoNIT.getText());
             if(tipo==1){
                 //validar si es cliente si lo 
-                /*MenuCliente menu=new MenuCliente();
-                menu.setVisible(true);
-                this.setVisible(false);*/
+                Cliente user = null;
+                Consultas consult = new Consultas();
+                user=consult.ValidarTarjetaCliente(nit);
+                if(user!=null){
+                    MenuCliente menu=new MenuCliente(user);
+                    menu.setVisible(true);
+                    this.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null, "NIT invalido");
+                    JOptionPane.showMessageDialog(null, "FORMATO: X-XXXXXXX");
+                }
+                
                 
             }else{
                 //validar si es admin
-                /*MenuAdmin menu=new MenuAdmin();
-                menu.setVisible(true);
-                this.setVisible(false);*/
+                Administrador admin = null;
+                Consultas consult = new Consultas();
+                admin=consult.ValidarTarjetaAdmin(nit);
+                if(admin!=null){
+                    IngresoContraseña ingreso=new IngresoContraseña(admin);
+                    ingreso.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null, "NIT invalido");
+                    JOptionPane.showMessageDialog(null, "FORMATO: X-XXXXXXX");
+                }
+                
             }
         }else{
             JOptionPane.showMessageDialog(null, "NIT invalido");

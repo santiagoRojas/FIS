@@ -5,16 +5,26 @@
  */
 package Vista;
 
+import Modelo.Cliente;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jeisson
  */
 public class MenuCliente extends javax.swing.JFrame {
 
+    private Cliente user;
     /**
      * Creates new form MenuCliente
      */
     public MenuCliente() {
+        user=null;
+        initComponents();
+    }
+    
+    public MenuCliente(Cliente user) {
+        this.user=user;
         initComponents();
     }
 
@@ -27,6 +37,7 @@ public class MenuCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        RETIRO = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -35,12 +46,31 @@ public class MenuCliente extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(350, 350));
         getContentPane().setLayout(null);
 
+        RETIRO.setText("Retirar");
+        RETIRO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RETIROActionPerformed(evt);
+            }
+        });
+        getContentPane().add(RETIRO);
+        RETIRO.setBounds(20, 40, 65, 23);
+
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoMenus.jpg"))); // NOI18N
         getContentPane().add(Fondo);
         Fondo.setBounds(0, 0, 550, 460);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void RETIROActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RETIROActionPerformed
+        if(user!=null){
+            IngresarMonto monto = new IngresarMonto(user);
+            monto.setVisible(true);
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, " ERROR!!!!! :Usuario nulo");
+        }
+    }//GEN-LAST:event_RETIROActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +109,6 @@ public class MenuCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Fondo;
+    private javax.swing.JButton RETIRO;
     // End of variables declaration//GEN-END:variables
 }

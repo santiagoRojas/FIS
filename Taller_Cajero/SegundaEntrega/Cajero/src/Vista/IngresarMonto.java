@@ -5,6 +5,9 @@
  */
 package Vista;
 
+import Controlador.DAO.EstadoCajeroDAO;
+import Modelo.Administrador;
+import Modelo.Cliente;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,11 +17,26 @@ import javax.swing.JOptionPane;
 public class IngresarMonto extends javax.swing.JFrame {
     
     private int cantidad;
-
+    private Administrador admin;
+    private Cliente  user;
     /**
      * Creates new form IngresarMonto
      */
     public IngresarMonto() {
+        admin=null;
+        user=null;
+        initComponents();
+    }
+    
+    public IngresarMonto(Administrador admin) {
+        this.admin=admin;
+        user=null;
+        initComponents();
+    }
+    
+    public IngresarMonto(Cliente user) {
+        this.user=user;
+        admin=null;
         initComponents();
     }
 
@@ -82,7 +100,26 @@ public class IngresarMonto extends javax.swing.JFrame {
 
     private void OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKActionPerformed
         if(Monto.getText().length()>0){
-        cantidad=Integer.parseInt(Monto.getText());
+            cantidad=Integer.parseInt(Monto.getText());
+            if(user!=null){
+                EstadoCajeroDAO estado = new EstadoCajeroDAO();
+                int cantidadMaximaHoy;
+                cantidadMaximaHoy= estado.consultarTopeHoy();
+                
+                if(cantidad<=cantidadMaximaHoy){
+                    IngresoContraseña ingresar = new IngresoContraseña();
+                    ingresar.setMonto(cantidad);
+                    ingresar.setVisible(true);
+                    this.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null, "No se pudo realizar el retiro: Maximo retiro actual permitiido es: "+ cantidadMaximaHoy);
+                }
+                
+            }else if(admin!=null){
+                //aqui va JORGE
+            }else{
+                JOptionPane.showMessageDialog(null, "ERROR!! Usuario y administrador nulo.");
+            }
         }else{
             JOptionPane.showMessageDialog(null, "Digite por favor un valor");
         }

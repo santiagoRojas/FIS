@@ -95,7 +95,7 @@ public class TarjetaClienteDAO {
         return false;
     }
     // hay que restarle al retirar falta
-    public boolean retirar(int nit, int monto) throws ClassNotFoundException{
+    public boolean retirar(int nit, int monto){
         
         return false;
     }

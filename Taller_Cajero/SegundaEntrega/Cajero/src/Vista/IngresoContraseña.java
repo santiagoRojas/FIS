@@ -5,6 +5,14 @@
  */
 package Vista;
 
+import Controlador.Consultas;
+import Controlador.DAO.TarjetaClienteDAO;
+import Controlador.Retirar;
+import Controlador.ValidarContraseñas;
+import Modelo.Administrador;
+import Modelo.Cliente;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,13 +22,35 @@ import javax.swing.JOptionPane;
 public class IngresoContraseña extends javax.swing.JFrame {
 
     private int Contra;
+    private Administrador admin;
+    private Cliente user;
+    private int monto;
+    private int intentos;
     /**
      * Creates new form IngresoContraseña
      */
     public IngresoContraseña() {
+        admin=null;
+        user=null;
         initComponents();
     }
 
+    public IngresoContraseña(Administrador admin) {
+        this.admin=admin;
+        user=null;
+        initComponents();
+    }
+    
+    public IngresoContraseña(Cliente user) {
+        this.user=user;
+        admin=null;
+        monto=0;
+        intentos=3;
+        initComponents();
+    }
+    public void setMonto(int monto){
+        this.monto = monto;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -93,6 +123,51 @@ public class IngresoContraseña extends javax.swing.JFrame {
     private void OkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OkActionPerformed
         if(Contraseña.getText().length()==4){
             Contra=Integer.parseInt(Contraseña.getText());
+            if(user!=null){
+                ValidarContraseñas consultar = new ValidarContraseñas();
+                boolean respuesta1= consultar.ValidarCliente(user.getNit(), Contra);
+                if(respuesta1==true && intentos != 0){
+                    if(monto!=0 ){
+                        boolean respuesta2;
+                        Retirar retiro = new Retirar();
+                        respuesta2 = retiro.RetirarFondos(this.monto, user.getNit());
+                        if(respuesta2==true){
+                            Consultas consulta = new Consultas();
+                            user=consulta.ValidarTarjetaCliente(user.getNit());
+                            ImpresionCliente imprimir = new ImpresionCliente(user,monto);
+                            imprimir.setVisible(true);
+                            this.dispose();
+                            
+                        }else{
+                            JOptionPane.showMessageDialog(null, "No se pudo realizar retiro, fondos insuficientes");
+                        }
+                    }else{
+                        JOptionPane.showMessageDialog(null, "No se han implementado mas opiciones distintas de retiro");
+                    }
+                }else if(intentos==0){
+                    try {
+                        respuesta1 = consultar.BloquearTarjetaCliente(user.getNit());
+                        if(respuesta1==true){
+                            JOptionPane.showMessageDialog(null, "Maximo de intentos permitidos: Tarjeta bloqueada");
+                            //Devolver a ventana bienvinedia
+                        }else{
+                            JOptionPane.showMessageDialog(null, "No se pudo bloquear la tarjeta");
+                        }
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(IngresoContraseña.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
+                }
+                else{
+                    intentos-=1;
+                    JOptionPane.showMessageDialog(null, "Contraseña invalida, restan: "+intentos+" intentos");
+                }
+            }else if(admin!=null){
+                //aqui va jorge
+            }else{
+               JOptionPane.showMessageDialog(null, "ERROR!!: Administrador y usuario nulo.");
+            }
+            
             //ValidarContraseña
         }
         else{
