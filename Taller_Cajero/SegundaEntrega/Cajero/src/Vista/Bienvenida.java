@@ -134,7 +134,7 @@ public class Bienvenida extends javax.swing.JFrame {
                 if(admin!=null){
                     IngresoContraseña ingreso=new IngresoContraseña(admin);
                     ingreso.setVisible(true);
-                    this.setVisible(false);
+                    this.dispose();
                 }else{
                     JOptionPane.showMessageDialog(null, "NIT invalido");
                     JOptionPane.showMessageDialog(null, "FORMATO: X-XXXXXXX");

@@ -81,13 +81,18 @@ public class IngresoContraseña extends javax.swing.JFrame {
         getContentPane().add(Volver);
         Volver.setBounds(20, 50, 110, 40);
 
+        Contraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContraseñaActionPerformed(evt);
+            }
+        });
         Contraseña.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 ContraseñaKeyTyped(evt);
             }
         });
         getContentPane().add(Contraseña);
-        Contraseña.setBounds(230, 240, 80, 60);
+        Contraseña.setBounds(210, 260, 200, 40);
 
         Ok.setText("OK");
         Ok.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +101,7 @@ public class IngresoContraseña extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Ok);
-        Ok.setBounds(40, 253, 70, 50);
+        Ok.setBounds(40, 263, 70, 40);
 
         jLabel2.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
         jLabel2.setText("DIGITE SU CONTRASEÑA");
@@ -163,7 +168,31 @@ public class IngresoContraseña extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Contraseña invalida, restan: "+intentos+" intentos");
                 }
             }else if(admin!=null){
-                //aqui va jorge
+                ValidarContraseñas consultar = new ValidarContraseñas();
+                boolean respuesta1= consultar.ValidarAdministrador(admin.getNit(), Contra);
+                if(respuesta1==true && intentos != 0){
+                   MenuAdmin menu = new MenuAdmin(admin);
+                   
+                }else if(intentos==0){
+                    try {
+                        respuesta1 = consultar.BloquearTarjetaAdmin(admin.getNit());
+                        if(respuesta1==true){
+                            JOptionPane.showMessageDialog(null, "Maximo de intentos permitidos: Tarjeta bloqueada");
+                            Bienvenida bv = new Bienvenida();
+                            bv.setVisible(true);
+                            this.dispose();
+                        }else{
+                            JOptionPane.showMessageDialog(null, "No se pudo bloquear la tarjeta");
+                        }
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(IngresoContraseña.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    
+                }
+                else{
+                    intentos-=1;
+                    JOptionPane.showMessageDialog(null, "Contraseña invalida, restan: "+intentos+" intentos");
+                }
             }else{
                JOptionPane.showMessageDialog(null, "ERROR!!: Administrador y usuario nulo.");
             }
@@ -175,6 +204,10 @@ public class IngresoContraseña extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "FORMATO: XXXX");
         }
     }//GEN-LAST:event_OkActionPerformed
+
+    private void ContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseñaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContraseñaActionPerformed
 
     /**
      * @param args the command line arguments

@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Controlador.DAO.TarjetaAdmisDAO;
 import Controlador.DAO.TarjetaClienteDAO;
 
 /**
@@ -23,7 +24,12 @@ public class ValidarContraseñas {
     }
      
      public boolean ValidarAdministrador(int nit, int contra){
-         
-         return false;
+         TarjetaAdmisDAO tarjeta = new TarjetaAdmisDAO(); 
+         return tarjeta.consultarContra(contra, nit);
      }
+     
+     public boolean BloquearTarjetaAdmin(int nit) throws ClassNotFoundException{
+         TarjetaAdmisDAO tarjeta = new TarjetaAdmisDAO();
+        return tarjeta.bloquearTarjeta(nit);
+    }
 }

@@ -5,18 +5,27 @@
  */
 package Vista;
 
+import Modelo.Administrador;
+
 /**
  *
  * @author Jeisson
  */
 public class MenuAdmin extends javax.swing.JFrame {
 
+    private Administrador admin;
     /**
      * Creates new form MenuAdmin
      */
     public MenuAdmin() {
         initComponents();
     }
+    
+    public MenuAdmin(Administrador admin) {
+        this.admin=admin;
+        initComponents();
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,9 +39,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(350, 350));
         setMinimumSize(new java.awt.Dimension(350, 350));
-        setPreferredSize(new java.awt.Dimension(350, 350));
         getContentPane().setLayout(null);
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoMenus.jpg"))); // NOI18N
