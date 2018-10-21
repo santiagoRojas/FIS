@@ -72,14 +72,14 @@ public class IngresoContraseña extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(450, 350));
         getContentPane().setLayout(null);
 
-        Volver.setText("VOLVER");
+        Volver.setText("Cancelar Operación");
         Volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 VolverActionPerformed(evt);
             }
         });
         getContentPane().add(Volver);
-        Volver.setBounds(20, 50, 110, 40);
+        Volver.setBounds(140, 240, 190, 40);
 
         Contraseña.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,7 +92,7 @@ public class IngresoContraseña extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Contraseña);
-        Contraseña.setBounds(210, 260, 200, 40);
+        Contraseña.setBounds(170, 150, 200, 40);
 
         Ok.setText("OK");
         Ok.addActionListener(new java.awt.event.ActionListener() {
@@ -101,12 +101,12 @@ public class IngresoContraseña extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Ok);
-        Ok.setBounds(40, 263, 70, 40);
+        Ok.setBounds(50, 150, 70, 40);
 
         jLabel2.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
         jLabel2.setText("DIGITE SU CONTRASEÑA");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(10, 110, 260, 70);
+        jLabel2.setBounds(20, 30, 260, 70);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Digite.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -116,7 +116,9 @@ public class IngresoContraseña extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverActionPerformed
-        // TODO add your handling code here:
+        Bienvenida retorno=new Bienvenida();
+        retorno.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_VolverActionPerformed
 
     private void ContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContraseñaKeyTyped

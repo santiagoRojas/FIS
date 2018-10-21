@@ -27,6 +27,10 @@ public class MenuConsultaRetiros extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Cancelar = new javax.swing.JButton();
+        Diario = new javax.swing.JButton();
+        Anual = new javax.swing.JButton();
+        Titulo = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -34,12 +38,50 @@ public class MenuConsultaRetiros extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(350, 350));
         getContentPane().setLayout(null);
 
+        Cancelar.setText("Cancelar Operación");
+        Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Cancelar);
+        Cancelar.setBounds(20, 210, 280, 40);
+
+        Diario.setText("Diarios");
+        Diario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DiarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Diario);
+        Diario.setBounds(50, 80, 190, 50);
+
+        Anual.setText("Anual");
+        getContentPane().add(Anual);
+        Anual.setBounds(50, 140, 190, 50);
+
+        Titulo.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        Titulo.setForeground(new java.awt.Color(204, 204, 204));
+        Titulo.setText("SELECCIONE EL TIPO DE RETIRO");
+        getContentPane().add(Titulo);
+        Titulo.setBounds(40, 20, 330, 40);
+
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoMenus.jpg"))); // NOI18N
         getContentPane().add(Fondo);
         Fondo.setBounds(0, 0, 440, 420);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+        Bienvenida retorno=new Bienvenida();
+        retorno.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_CancelarActionPerformed
+
+    private void DiarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiarioActionPerformed
+        
+    }//GEN-LAST:event_DiarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -77,6 +119,10 @@ public class MenuConsultaRetiros extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Anual;
+    private javax.swing.JButton Cancelar;
+    private javax.swing.JButton Diario;
     private javax.swing.JLabel Fondo;
+    private javax.swing.JLabel Titulo;
     // End of variables declaration//GEN-END:variables
 }

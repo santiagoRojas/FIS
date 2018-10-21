@@ -50,7 +50,7 @@ public class IngresarNIT extends javax.swing.JFrame {
             }
         });
         getContentPane().add(OK);
-        OK.setBounds(40, 240, 70, 40);
+        OK.setBounds(40, 150, 70, 40);
 
         RestoNIT.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -58,7 +58,7 @@ public class IngresarNIT extends javax.swing.JFrame {
             }
         });
         getContentPane().add(RestoNIT);
-        RestoNIT.setBounds(240, 250, 190, 30);
+        RestoNIT.setBounds(190, 150, 190, 30);
 
         PrimerDigito.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -66,16 +66,21 @@ public class IngresarNIT extends javax.swing.JFrame {
             }
         });
         getContentPane().add(PrimerDigito);
-        PrimerDigito.setBounds(180, 250, 40, 30);
+        PrimerDigito.setBounds(140, 150, 40, 30);
 
         jLabel2.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
         jLabel2.setText("DIGITE EL NIT");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(10, 140, 180, 40);
+        jLabel2.setBounds(20, 20, 180, 40);
 
-        VOLVER.setText("VOLVER");
+        VOLVER.setText("Cancelar Operación");
+        VOLVER.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VOLVERActionPerformed(evt);
+            }
+        });
         getContentPane().add(VOLVER);
-        VOLVER.setBounds(20, 30, 80, 30);
+        VOLVER.setBounds(120, 250, 200, 40);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Digite.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -102,11 +107,20 @@ public class IngresarNIT extends javax.swing.JFrame {
         if(PrimerDigito.getText().length()==1 && RestoNIT.getText().length()==7){
         primer=Integer.parseInt(PrimerDigito.getText());
         resto=Integer.parseInt(RestoNIT.getText());
+            
+            //Consultar saldo en base de datos
+        
         }else{
             JOptionPane.showMessageDialog(null, "NIT invalido");
             JOptionPane.showMessageDialog(null, "FORMATO: X-XXXXXXX");
         }
     }//GEN-LAST:event_OKActionPerformed
+
+    private void VOLVERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VOLVERActionPerformed
+        Bienvenida retorno=new Bienvenida();
+        retorno.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_VOLVERActionPerformed
 
     /**
      * @param args the command line arguments

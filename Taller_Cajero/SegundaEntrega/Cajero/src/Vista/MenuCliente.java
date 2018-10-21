@@ -37,7 +37,10 @@ public class MenuCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         RETIRO = new javax.swing.JButton();
+        Consultar = new javax.swing.JButton();
+        CancelarOp = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -46,14 +49,33 @@ public class MenuCliente extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(350, 350));
         getContentPane().setLayout(null);
 
-        RETIRO.setText("Retirar");
+        jLabel1.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setText("SELECCIONE UNA OPCION");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(80, 60, 210, 40);
+
+        RETIRO.setText("RETIRAR");
         RETIRO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RETIROActionPerformed(evt);
             }
         });
         getContentPane().add(RETIRO);
-        RETIRO.setBounds(20, 40, 65, 23);
+        RETIRO.setBounds(160, 110, 150, 50);
+
+        Consultar.setText("CONSULTAR");
+        getContentPane().add(Consultar);
+        Consultar.setBounds(160, 170, 150, 50);
+
+        CancelarOp.setText("Cancelar Operación");
+        CancelarOp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarOpActionPerformed(evt);
+            }
+        });
+        getContentPane().add(CancelarOp);
+        CancelarOp.setBounds(130, 230, 190, 50);
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoMenus.jpg"))); // NOI18N
         getContentPane().add(Fondo);
@@ -71,6 +93,12 @@ public class MenuCliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, " ERROR!!!!! :Usuario nulo");
         }
     }//GEN-LAST:event_RETIROActionPerformed
+
+    private void CancelarOpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarOpActionPerformed
+        Bienvenida retorno=new Bienvenida();
+        retorno.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_CancelarOpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,7 +136,10 @@ public class MenuCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CancelarOp;
+    private javax.swing.JButton Consultar;
     private javax.swing.JLabel Fondo;
     private javax.swing.JButton RETIRO;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

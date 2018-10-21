@@ -14,7 +14,12 @@ import Modelo.Administrador;
 public class MenuAdmin extends javax.swing.JFrame {
 
     private Administrador admin;
-    /**
+    private int opcion;
+
+    public int getOpcion() {
+        return opcion;
+    }
+            /**
      * Creates new form MenuAdmin
      */
     public MenuAdmin() {
@@ -36,11 +41,73 @@ public class MenuAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Titulo = new javax.swing.JLabel();
+        ConsDineroT = new javax.swing.JButton();
+        ConsRetiros = new javax.swing.JButton();
+        CantMax = new javax.swing.JButton();
+        IngDinero = new javax.swing.JButton();
+        Reactivar = new javax.swing.JButton();
+        Cancelar = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(350, 350));
         getContentPane().setLayout(null);
+
+        Titulo.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        Titulo.setForeground(new java.awt.Color(204, 204, 204));
+        Titulo.setText("SELECCIONE UNA OPCION");
+        getContentPane().add(Titulo);
+        Titulo.setBounds(40, 40, 240, 40);
+
+        ConsDineroT.setText("Consultar Dinero Existente");
+        ConsDineroT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsDineroTActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ConsDineroT);
+        ConsDineroT.setBounds(30, 160, 290, 30);
+
+        ConsRetiros.setText("Consultar Retiros");
+        getContentPane().add(ConsRetiros);
+        ConsRetiros.setBounds(30, 200, 290, 30);
+
+        CantMax.setText("Maximo Retiro");
+        CantMax.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CantMaxActionPerformed(evt);
+            }
+        });
+        getContentPane().add(CantMax);
+        CantMax.setBounds(30, 120, 290, 30);
+
+        IngDinero.setText("Ingresar Dinero");
+        IngDinero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                IngDineroActionPerformed(evt);
+            }
+        });
+        getContentPane().add(IngDinero);
+        IngDinero.setBounds(30, 80, 290, 30);
+
+        Reactivar.setText("Reactivar Tarjeta");
+        Reactivar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReactivarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Reactivar);
+        Reactivar.setBounds(30, 240, 290, 30);
+
+        Cancelar.setText("Cancelar Operación");
+        Cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Cancelar);
+        Cancelar.setBounds(30, 280, 290, 30);
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoMenus.jpg"))); // NOI18N
         getContentPane().add(Fondo);
@@ -48,6 +115,38 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+        Bienvenida retorno=new Bienvenida();
+        retorno.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_CancelarActionPerformed
+
+    private void ReactivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReactivarActionPerformed
+        opcion=5;
+        IngresarNIT ingrese=new IngresarNIT();
+        ingrese.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_ReactivarActionPerformed
+
+    private void IngDineroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngDineroActionPerformed
+        opcion=1;
+        IngresarMonto ingrese=new IngresarMonto();
+        ingrese.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_IngDineroActionPerformed
+
+    private void CantMaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CantMaxActionPerformed
+        opcion=2;
+        IngresarMonto ingrese=new IngresarMonto();
+        ingrese.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_CantMaxActionPerformed
+
+    private void ConsDineroTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsDineroTActionPerformed
+        
+        
+    }//GEN-LAST:event_ConsDineroTActionPerformed
 
     /**
      * @param args the command line arguments
@@ -85,6 +184,13 @@ public class MenuAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Cancelar;
+    private javax.swing.JButton CantMax;
+    private javax.swing.JButton ConsDineroT;
+    private javax.swing.JButton ConsRetiros;
     private javax.swing.JLabel Fondo;
+    private javax.swing.JButton IngDinero;
+    private javax.swing.JButton Reactivar;
+    private javax.swing.JLabel Titulo;
     // End of variables declaration//GEN-END:variables
 }

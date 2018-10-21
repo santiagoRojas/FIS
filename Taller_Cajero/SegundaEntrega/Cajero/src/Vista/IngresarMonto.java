@@ -60,9 +60,14 @@ public class IngresarMonto extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(450, 334));
         getContentPane().setLayout(null);
 
-        Volver.setLabel("VOLVER");
+        Volver.setText("Cancelar Operación");
+        Volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VolverActionPerformed(evt);
+            }
+        });
         getContentPane().add(Volver);
-        Volver.setBounds(40, 50, 90, 40);
+        Volver.setBounds(100, 240, 180, 40);
 
         OK.setText("OK");
         OK.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +76,7 @@ public class IngresarMonto extends javax.swing.JFrame {
             }
         });
         getContentPane().add(OK);
-        OK.setBounds(50, 230, 80, 50);
+        OK.setBounds(40, 150, 80, 50);
 
         Monto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -79,12 +84,12 @@ public class IngresarMonto extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Monto);
-        Monto.setBounds(210, 240, 130, 40);
+        Monto.setBounds(180, 150, 130, 50);
 
         jLabel2.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
         jLabel2.setText("DIGITE LA CANTIDAD");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(10, 100, 260, 90);
+        jLabel2.setBounds(20, 20, 260, 90);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Digite.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
@@ -117,6 +122,13 @@ public class IngresarMonto extends javax.swing.JFrame {
                 
             }else if(admin!=null){
                 //aqui va JORGE
+                MenuAdmin opci=new MenuAdmin();
+                if(opci.getOpcion()==1){
+                    //estoy en la opcion de ingresar dinero
+                }else{
+                    //estoy en la opcion de ingresarMaxDiario
+                }
+                
             }else{
                 JOptionPane.showMessageDialog(null, "ERROR!! Usuario y administrador nulo.");
             }
@@ -125,6 +137,12 @@ public class IngresarMonto extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_OKActionPerformed
+
+    private void VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverActionPerformed
+        Bienvenida retorno=new Bienvenida();
+        retorno.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_VolverActionPerformed
 
     /**
      * @param args the command line arguments

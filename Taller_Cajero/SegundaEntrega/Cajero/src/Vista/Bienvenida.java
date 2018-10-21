@@ -18,6 +18,14 @@ public class Bienvenida extends javax.swing.JFrame {
 
     private int nit;
     private int tipo;
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
     /**
      * Creates new form Bienvenida
      */
@@ -119,7 +127,7 @@ public class Bienvenida extends javax.swing.JFrame {
                 if(user!=null){
                     MenuCliente menu=new MenuCliente(user);
                     menu.setVisible(true);
-                    this.dispose();
+                    this.setVisible(false);
                 }else{
                     JOptionPane.showMessageDialog(null, "NIT invalido");
                     JOptionPane.showMessageDialog(null, "FORMATO: X-XXXXXXX");
@@ -134,7 +142,7 @@ public class Bienvenida extends javax.swing.JFrame {
                 if(admin!=null){
                     IngresoContraseña ingreso=new IngresoContraseña(admin);
                     ingreso.setVisible(true);
-                    this.dispose();
+                    this.setVisible(false);
                 }else{
                     JOptionPane.showMessageDialog(null, "NIT invalido");
                     JOptionPane.showMessageDialog(null, "FORMATO: X-XXXXXXX");
