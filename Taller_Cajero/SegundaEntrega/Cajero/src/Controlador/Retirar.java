@@ -14,7 +14,7 @@ import Modelo.Cliente;
  */
 public class Retirar {
     
-    public boolean RetirarFondos(int monto, int nit){
+    public boolean RetirarFondos(int monto, int nit) throws ClassNotFoundException{
         TarjetaClienteDAO tarjeta = new TarjetaClienteDAO();
         return tarjeta.retirar(nit, monto);
     }

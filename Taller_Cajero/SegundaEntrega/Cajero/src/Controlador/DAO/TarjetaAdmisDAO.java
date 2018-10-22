@@ -27,7 +27,9 @@ public class TarjetaAdmisDAO {
         rs=null;
     }
     public boolean bloquearTarjeta(int nit) throws ClassNotFoundException{
-        String consulta = "update TarjetaAdministrador set estadoTarjeta = false where idTarjetaAdministrador\"="+nit;
+        String consulta = "UPDATE public.\"TarjetaAdministrador\"\n" +
+"	SET  \"estadoTarjeta\"=false\n" +
+"	WHERE \"idTarjetaAdministrador\"="+nit;
         try {
             con = Conexion.getConexion();
             st = con.createStatement();
@@ -42,17 +44,20 @@ public class TarjetaAdmisDAO {
     }
     public Administrador consultar(int nit){
         admin = null;
-        String consulta = "SELECT * FROM TarjetaAdministrador, Administrador   WHERE Administrador.idAdministrador = TarjetaAdministrador.idAdministrador and  idTarjetaAdministrador ="+nit;
+        String consulta = "SELECT *\n" +
+"	FROM public.\"TarjetaAdministrador\", public.\"Administrador\"\n" +
+"	WHERE public.\"Administrador\".\"idAdministrador\" = public.\"TarjetaAdministrador\".\"idAdministrador\" \n" +
+"	and  \"idTarjetaAdministrador\" = "+nit;
         try {
             con = Conexion.getConexion();
             st = con.createStatement();
             rs = st.executeQuery(consulta);
             if(rs.next()){
                 admin = new Administrador();
-                admin.setId(rs.getInt("idCliente"));
+                admin.setId(rs.getInt("idAdministrador"));
                 admin.setNombre(rs.getString("nombre"));
                 admin.setApellido(rs.getString("apellido"));
-                admin.setNit(rs.getInt("nitTarjetaCliente"));
+                admin.setNit(rs.getInt("idTarjetaAdministrador"));
                 admin.setEstadoTarjeta(rs.getBoolean("estadoTarjeta"));
             }
             st.close();
@@ -64,7 +69,9 @@ public class TarjetaAdmisDAO {
         return admin;
     }
     public boolean consultarContra(int contra, int nit){
-        String consulta = "SELECT contraseña FROM TarjetaAdministrador WHERE idTarjetaAdministrador ="+nit+" and contraseña = "+contra;
+        String consulta = "SELECT \"contraseña\" FROM public.\"TarjetaAdministrador\" \n" +
+"WHERE \"idTarjetaAdministrador\" = "+nit+" \n" +
+"and \"contraseña\" ="+contra;
         try {
             con = Conexion.getConexion();
             st = con.createStatement();

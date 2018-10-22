@@ -27,7 +27,8 @@ public class TarjetaClienteDAO {
         rs=null;
     }
     public boolean bloquearTarjeta(int nit) throws ClassNotFoundException{
-        String consulta = "update TarjetaCliente set estadoTarjeta = false where nitTarjetaCliente\"="+nit;
+        String consulta = "update \"TarjetaCliente\" set \"estadoTarjeta\" = false \n" +
+"where \"nitTarjetaCliente\" ="+nit;
         try {
             con = Conexion.getConexion();
             st = con.createStatement();
@@ -42,7 +43,9 @@ public class TarjetaClienteDAO {
     }
     public Cliente consultar(int nit){
         cliente = null;
-        String consulta = "SELECT * FROM TarjetaCliente, Cliente   WHERE Cliente.idCliente = TarjetaCliente.idCliente and  nitTarjetaCliente ="+nit;
+        String consulta = "SELECT * FROM public.\"TarjetaCliente\", public.\"Cliente\"   \n" +
+"WHERE public.\"Cliente\".\"idCliente\" = public.\"TarjetaCliente\".\"idCliente\" \n" +
+"and  \"nitTarjetaCliente\" = "+nit;
         try {
             con = Conexion.getConexion();
             st = con.createStatement();
@@ -65,7 +68,8 @@ public class TarjetaClienteDAO {
         return cliente;
     }
     public boolean consultarContra(int contra, int nit){
-        String consulta = "SELECT contraseña FROM TarjetaCliente WHERE nitTarjetaCliente ="+nit+" and contraseña = "+contra;
+        String consulta = "SELECT \"contraseña\" FROM \"TarjetaCliente\" \n" +
+"WHERE \"nitTarjetaCliente\" = "+nit+" and \"contraseña\" ="+contra;
         try {
             con = Conexion.getConexion();
             st = con.createStatement();
@@ -81,7 +85,8 @@ public class TarjetaClienteDAO {
         return false;
     }
     public boolean reactivar(int nit) throws ClassNotFoundException{
-        String consulta = "update TarjetaCliente set estadoTarjeta = true where nitTarjetaCliente\"="+nit;
+        String consulta = "update \"TarjetaCliente\" set \"estadoTarjeta\" = true \n" +
+"where \"nitTarjetaCliente\" ="+nit;
         try {
             con = Conexion.getConexion();
             st = con.createStatement();
@@ -95,8 +100,23 @@ public class TarjetaClienteDAO {
         return false;
     }
     // hay que restarle al retirar falta
-    public boolean retirar(int nit, int monto){
-        
+    public boolean retirar(int nit, int monto) throws ClassNotFoundException{
+        Cliente user = consultar(nit);
+        if((user.getDinero()-monto)<0){
+            return false;
+        }
+        String consulta = "update \"TarjetaCliente\" set \"dinero\" = "+(user.getDinero()-monto)+" \n" +
+"where \"nitTarjetaCliente\" ="+nit;
+        try {
+            con = Conexion.getConexion();
+            st = con.createStatement();
+            st.executeUpdate(consulta);
+            st.close();
+            Conexion.cerrarConexion();
+            return true;
+        } catch (SQLException e) {
+            System.out.println("no se pudo realizar el retiro");
+        }
         return false;
     }
 }

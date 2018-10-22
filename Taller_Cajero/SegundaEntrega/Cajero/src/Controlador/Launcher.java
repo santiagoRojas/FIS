@@ -15,5 +15,6 @@ public class Launcher {
     public static void main(String[] args) {
         Bienvenida comienzo = new Bienvenida();
         comienzo.setVisible(true);
+        
     }
 }

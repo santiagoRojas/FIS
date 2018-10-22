@@ -20,7 +20,7 @@ import java.sql.Statement;
         public static Connection getConexion() throws ClassNotFoundException {
 
             String driver = "org.postgresql.Driver"; 
-            String connectString = "jdbc:postgresql://localhost:5432/postgres"; 
+            String connectString = "jdbc:postgresql://localhost:5432/Cajero"; 
             String user = "postgres";
             String password = "santiago"; 
 

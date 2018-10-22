@@ -26,13 +26,13 @@ public class EstadoCajeroDAO {
     }
     public int consultarDinero(){
         int dinero = 0;
-        String consulta = "SELECT dinero FROM cajero WHERE idCajero = 1";
+        String consulta = "SELECT \"deposito\" FROM \"Cajero\" WHERE \"idCajero\" = 1";
         try {
             con = Conexion.getConexion();
             st = con.createStatement();
             rs = st.executeQuery(consulta);
             if(rs.next()){
-                dinero = rs.getInt("dinero");
+                dinero = rs.getInt("deposito");
             }
             st.close();
             Conexion.cerrarConexion();
@@ -44,13 +44,13 @@ public class EstadoCajeroDAO {
     }
     public int consultarTopeHoy(){
         int tope = 0;
-        String consulta = "SELECT dinero FROM cajero WHERE idCajero = 1";
+        String consulta = "SELECT \"maxRetiroDia\" FROM \"Cajero\" WHERE \"idCajero\" = 1";
         try {
             con = Conexion.getConexion();
             st = con.createStatement();
             rs = st.executeQuery(consulta);
             if(rs.next()){
-                tope = rs.getInt("maxDineroHoy");
+                tope = rs.getInt("maxRetiroDia");
             }
             st.close();
             Conexion.cerrarConexion();
@@ -63,7 +63,8 @@ public class EstadoCajeroDAO {
     public boolean modificarDinero(int dinero) throws ClassNotFoundException {
         int dineroActual ;
         dineroActual = consultarDinero();
-        String consulta = "update Cajerr set Dinero ="+(dineroActual+dinero);
+        String consulta = "update \"Cajero\" set \"deposito\"= "+(dineroActual+dinero)+"  \n" +
+"WHERE \"idCajero\"=1";
         try {
             con = Conexion.getConexion();
             st = con.createStatement();

@@ -16,7 +16,11 @@ public class Cliente {
     private int id;
     private int nit;
     private int dinero;
-
+    
+    public boolean getEstadoTarjeta(){
+        return estadoTarjeta;
+    }
+    
     public String getNombre() {
         return nombre;
     }

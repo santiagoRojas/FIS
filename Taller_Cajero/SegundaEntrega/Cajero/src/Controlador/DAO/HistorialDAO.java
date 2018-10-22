@@ -27,11 +27,12 @@ public class HistorialDAO {
         st = null;
         rs=null;
     }
-    public ArrayList<Registro> consultaDiario(){
+    public ArrayList<Registro> consultaDiario(String dia){
         registros = null;
-        String consulta = "SELECT * FROM HistorialRegistro, TarjetaCliente, Cliente WHERE where fecha >= dateadd([day], datediff([day], '19000101', getdate()), '19000101') and fecha < dateadd([day], datediff([day], '19000101', getdate()) + 1, '19000101')"
-                + "and HistorialRegistro.nitTarjetaCliente = TarjetaCliente.nitTarjetaCliente"
-                + "and TarjetaCliente.idCliente = Cliente.idCliente";
+        String consulta = "SELECT * FROM \"HistorialRegistro\", \"TarjetaCliente\", \"Cliente\" \n" +
+"WHERE and TO_CHAR(fec,'DD')="+dia+ 
+"\"HistorialRegistro\".\"nitTarjetaCliente\" = \"TarjetaCliente\".\"nitTarjetaCliente\"\n" +
+"and \"TarjetaCliente\".\"idCliente\" = \"Cliente\".\"idCliente\"";
         try {
             con = Conexion.getConexion();
             st = con.createStatement();
@@ -55,11 +56,12 @@ public class HistorialDAO {
         }
             return registros;
     }
-    public ArrayList<Registro> consultaAño(){
+    public ArrayList<Registro> consultaAño(String año){
         registros = null;
-        String consulta = "SELECT * FROM HistorialRegistro, TarjetaCliente, Cliente WHERE where fecha >= dateadd([year], datediff([year], '19000101', getdate()), '19000101') and fecha < dateadd([year], datediff([year], '19000101', getdate()) + 1, '19000101')"
-                + "and HistorialRegistro.nitTarjetaCliente = TarjetaCliente.nitTarjetaCliente"
-                + "and TarjetaCliente.idCliente = Cliente.idCliente";
+        String consulta = "SELECT * FROM \"HistorialRegistro\", \"TarjetaCliente\", \"Cliente\" \n" +
+"WHERE and TO_CHAR(fec,'DD')="+año+ 
+"\"HistorialRegistro\".\"nitTarjetaCliente\" = \"TarjetaCliente\".\"nitTarjetaCliente\"\n" +
+"and \"TarjetaCliente\".\"idCliente\" = \"Cliente\".\"idCliente\"";
         try {
             con = Conexion.getConexion();
             st = con.createStatement();
@@ -88,7 +90,7 @@ public class HistorialDAO {
         try {
             con = Conexion.getConexion();
             st = con.createStatement();
-            String inserccion = "INSERT INTO HistorialRegistro VALUES("+fecha+","+monto+","+nit+","+idCajero+")";
+            String inserccion = "INSERT INTO \"HistorialRegistro\" VALUES("+fecha+","+monto+","+nit+","+idCajero+")";
             st.executeUpdate(inserccion);
             st.close();
             Conexion.cerrarConexion();

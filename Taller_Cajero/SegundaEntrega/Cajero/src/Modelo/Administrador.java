@@ -16,6 +16,9 @@ public class Administrador {
     private int id;
     private int nit;
 
+    public boolean getEstadoTarjeta(){
+        return estadoTarjeta;
+    }
     public String getNombre() {
         return nombre;
     }
