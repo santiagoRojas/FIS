@@ -39,7 +39,6 @@ public class MenuCliente extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         RETIRO = new javax.swing.JButton();
-        Consultar = new javax.swing.JButton();
         CancelarOp = new javax.swing.JButton();
         Fondo = new javax.swing.JLabel();
 
@@ -63,10 +62,6 @@ public class MenuCliente extends javax.swing.JFrame {
         });
         getContentPane().add(RETIRO);
         RETIRO.setBounds(160, 110, 150, 50);
-
-        Consultar.setText("CONSULTAR");
-        getContentPane().add(Consultar);
-        Consultar.setBounds(160, 170, 150, 50);
 
         CancelarOp.setText("Cancelar Operación");
         CancelarOp.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +132,6 @@ public class MenuCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CancelarOp;
-    private javax.swing.JButton Consultar;
     private javax.swing.JLabel Fondo;
     private javax.swing.JButton RETIRO;
     private javax.swing.JLabel jLabel1;
