@@ -57,11 +57,6 @@ public class MenuConsultaRetiros extends javax.swing.JFrame {
         Diario.setBounds(50, 80, 190, 50);
 
         Anual.setText("Anual");
-        Anual.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AnualActionPerformed(evt);
-            }
-        });
         getContentPane().add(Anual);
         Anual.setBounds(50, 140, 190, 50);
 
@@ -87,10 +82,6 @@ public class MenuConsultaRetiros extends javax.swing.JFrame {
     private void DiarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DiarioActionPerformed
         
     }//GEN-LAST:event_DiarioActionPerformed
-
-    private void AnualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnualActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AnualActionPerformed
 
     /**
      * @param args the command line arguments

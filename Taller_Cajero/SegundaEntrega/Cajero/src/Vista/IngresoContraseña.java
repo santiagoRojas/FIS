@@ -6,7 +6,6 @@
 package Vista;
 
 import Controlador.Consultas;
-import Controlador.DAO.TarjetaClienteDAO;
 import Controlador.Retirar;
 import Controlador.ValidarContraseñas;
 import Modelo.Administrador;
@@ -137,16 +136,19 @@ public class IngresoContraseña extends javax.swing.JFrame {
                     if(monto!=0 ){
                         boolean respuesta2;
                         Retirar retiro = new Retirar();
-                        respuesta2 = retiro.RetirarFondos(this.monto, user.getNit());
-                        if(respuesta2==true){
-                            Consultas consulta = new Consultas();
-                            user=consulta.ValidarTarjetaCliente(user.getNit());
-                            ImpresionCliente imprimir = new ImpresionCliente(user,monto);
-                            imprimir.setVisible(true);
-                            this.dispose();
-                            
-                        }else{
-                            JOptionPane.showMessageDialog(null, "No se pudo realizar retiro, fondos insuficientes");
+                        try {
+                            respuesta2 = retiro.RetirarFondos(this.monto, user.getNit());
+                            if(respuesta2==true){
+                                Consultas consulta = new Consultas();
+                                user=consulta.ValidarTarjetaCliente(user.getNit());
+                                ImpresionCliente imprimir = new ImpresionCliente(user,monto);
+                                imprimir.setVisible(true);
+                                this.dispose();
+                            }else{
+                                JOptionPane.showMessageDialog(null, "No se pudo realizar retiro, fondos insuficientes");
+                            }
+                        } catch (ClassNotFoundException ex) {
+                            Logger.getLogger(IngresoContraseña.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }else{
                         JOptionPane.showMessageDialog(null, "No se han implementado mas opiciones distintas de retiro");

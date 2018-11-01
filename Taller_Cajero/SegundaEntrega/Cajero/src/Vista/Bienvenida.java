@@ -101,7 +101,7 @@ public class Bienvenida extends javax.swing.JFrame {
 
         Separador.setText("-");
         getContentPane().add(Separador);
-        Separador.setBounds(40, 240, 10, 14);
+        Separador.setBounds(40, 240, 10, 15);
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.jpg"))); // NOI18N
         getContentPane().add(Fondo);
@@ -127,7 +127,7 @@ public class Bienvenida extends javax.swing.JFrame {
                 if(user!=null){
                     MenuCliente menu=new MenuCliente(user);
                     menu.setVisible(true);
-                    this.dispose();
+                    this.setVisible(false);
                 }else{
                     JOptionPane.showMessageDialog(null, "NIT invalido");
                     JOptionPane.showMessageDialog(null, "FORMATO: X-XXXXXXX");
@@ -142,7 +142,7 @@ public class Bienvenida extends javax.swing.JFrame {
                 if(admin!=null){
                     IngresoContraseña ingreso=new IngresoContraseña(admin);
                     ingreso.setVisible(true);
-                    this.dispose();
+                    this.setVisible(false);
                 }else{
                     JOptionPane.showMessageDialog(null, "NIT invalido");
                     JOptionPane.showMessageDialog(null, "FORMATO: X-XXXXXXX");

@@ -122,7 +122,12 @@ public class IngresarMonto extends javax.swing.JFrame {
                 
             }else if(admin!=null){
                 //aqui va JORGE
-                
+                MenuAdmin opci=new MenuAdmin();
+                if(opci.getOpcion()==1){
+                    //estoy en la opcion de ingresar dinero
+                }else{
+                    //estoy en la opcion de ingresarMaxDiario
+                }
                 
             }else{
                 JOptionPane.showMessageDialog(null, "ERROR!! Usuario y administrador nulo.");
