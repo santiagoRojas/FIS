@@ -45,8 +45,8 @@ SET default_with_oids = false;
 
 CREATE TABLE public."Administrador" (
     "idAdministrador" integer NOT NULL,
-    nombre "char",
-    apellido "char",
+    nombre "text",
+    apellido "text",
     cedula integer
 );
 
@@ -62,7 +62,7 @@ CREATE TABLE public."Cajero" (
     "idCajero" integer NOT NULL,
     deposito integer,
     "maxRetiroDia" integer,
-    ubicacion "char"
+    ubicacion "text"
 );
 
 
@@ -75,8 +75,8 @@ ALTER TABLE public."Cajero" OWNER TO postgres;
 
 CREATE TABLE public."Cliente" (
     "idCliente" integer NOT NULL,
-    nombre "char",
-    apellido "char",
+    nombre "text",
+    apellido "text",
     cedula integer
 );
 
@@ -137,9 +137,9 @@ ALTER TABLE public."TarjetaCliente" OWNER TO postgres;
 --
 
 COPY public."Administrador" ("idAdministrador", nombre, apellido, cedula) FROM stdin;
-1	C	R	1030681971
-2	j	R	1040251654
-3	j	D	25145684
+1	CarlosSantiago	RojasMoreno	1030681971
+2	jeisson	Rincon	1040251654
+3	jorge	Dias	25145684
 \.
 
 
@@ -150,8 +150,8 @@ COPY public."Administrador" ("idAdministrador", nombre, apellido, cedula) FROM s
 --
 
 COPY public."Cajero" ("idCajero", deposito, "maxRetiroDia", ubicacion) FROM stdin;
-1	50000000	2000000	D
-2	100000000	3000000	C
+1	50000000	2000000	Dg42a#81
+2	100000000	3000000	Carr82#13
 \.
 
 
@@ -162,9 +162,9 @@ COPY public."Cajero" ("idCajero", deposito, "maxRetiroDia", ubicacion) FROM stdi
 --
 
 COPY public."Cliente" ("idCliente", nombre, apellido, cedula) FROM stdin;
-1	p	p	53355413
-2	j	s	5648175
-3	e	g	568492
+1	pepito	perez	53355413
+2	juanito	sanchez	5648175
+3	elber	galarga	568492
 \.
 
 
@@ -185,9 +185,9 @@ COPY public."HistorialRegistro" ("idHistorialRegistro", fecha, "montoRetirado", 
 --
 
 COPY public."TarjetaAdministrador" ("idTarjetaAdministrador", "estadoTarjeta", "contraseña", "idAdministrador") FROM stdin;
-102020095	t	95	1
-102020078	t	78	2
-102020405	t	405	3
+102020095	t	0095	1
+102020078	t	0078	2
+102020405	t	0405	3
 \.
 
 
@@ -198,10 +198,10 @@ COPY public."TarjetaAdministrador" ("idTarjetaAdministrador", "estadoTarjeta", "
 --
 
 COPY public."TarjetaCliente" ("nitTarjetaCliente", dinero, "estadoTarjeta", "contraseña", "idCliente") FROM stdin;
-2020182	6000000	t	1234	1
-2020183	8000000	f	1234	2
-2020184	18000000	t	4321	3
-2020181	20000000	t	1234	1
+202020182	6000000	t	1234	1
+202020183	8000000	f	1234	2
+202020184	18000000	t	4321	3
+202020181	20000000	t	1234	1
 \.
 
 
