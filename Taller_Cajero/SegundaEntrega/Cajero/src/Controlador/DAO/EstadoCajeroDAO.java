@@ -24,6 +24,23 @@ public class EstadoCajeroDAO {
         st = null;
         rs=null;
     }
+    public boolean retirar(int dinero) throws ClassNotFoundException {
+        int dineroActual ;
+        dineroActual = consultarDinero();
+        String consulta = "update \"Cajero\" set \"deposito\"= "+(dineroActual-dinero)+"  \n" +
+"WHERE \"idCajero\"=1";
+        try {
+            con = Conexion.getConexion();
+            st = con.createStatement();
+            st.executeUpdate(consulta);
+            st.close();
+            Conexion.cerrarConexion();
+            return true;
+        } catch (SQLException e) {
+            System.out.println("No se puedo realizar la modificacion");
+        }
+        return false;
+    }
     public int consultarDinero(){
         int dinero = 0;
         String consulta = "SELECT \"deposito\" FROM \"Cajero\" WHERE \"idCajero\" = 1";
@@ -64,6 +81,21 @@ public class EstadoCajeroDAO {
         int dineroActual ;
         dineroActual = consultarDinero();
         String consulta = "update \"Cajero\" set \"deposito\"= "+(dineroActual+dinero)+"  \n" +
+"WHERE \"idCajero\"=1";
+        try {
+            con = Conexion.getConexion();
+            st = con.createStatement();
+            st.executeUpdate(consulta);
+            st.close();
+            Conexion.cerrarConexion();
+            return true;
+        } catch (SQLException e) {
+            System.out.println("No se puedo realizar la modificacion");
+        }
+        return false;
+    }
+    public boolean modificarTopeHoy(int dinero) throws ClassNotFoundException {
+        String consulta = "update \"Cajero\" set \"maxRetiroDia\"= "+dinero+"  \n" +
 "WHERE \"idCajero\"=1";
         try {
             con = Conexion.getConexion();

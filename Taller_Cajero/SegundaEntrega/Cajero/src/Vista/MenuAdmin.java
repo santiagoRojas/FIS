@@ -5,7 +5,9 @@
  */
 package Vista;
 
+import Controlador.FuncionesAdmi;
 import Modelo.Administrador;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,7 +15,7 @@ import Modelo.Administrador;
  */
 public class MenuAdmin extends javax.swing.JFrame {
 
-    private Administrador admin;
+    private int admin;
     private int opcion;
 
     public int getOpcion() {
@@ -26,7 +28,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         initComponents();
     }
     
-    public MenuAdmin(Administrador admin) {
+    public MenuAdmin(int admin) {
         this.admin=admin;
         initComponents();
     }
@@ -124,28 +126,29 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     private void ReactivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReactivarActionPerformed
         opcion=5;
-        IngresarNIT ingrese=new IngresarNIT();
+        IngresarNIT ingrese=new IngresarNIT(admin);
         ingrese.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
+        
     }//GEN-LAST:event_ReactivarActionPerformed
 
     private void IngDineroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngDineroActionPerformed
         opcion=1;
-        IngresarMonto ingrese=new IngresarMonto();
+        IngresarMonto ingrese=new IngresarMonto(admin,this.opcion);
         ingrese.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_IngDineroActionPerformed
 
     private void CantMaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CantMaxActionPerformed
         opcion=2;
-        IngresarMonto ingrese=new IngresarMonto();
+        IngresarMonto ingrese=new IngresarMonto(admin,this.opcion);
         ingrese.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_CantMaxActionPerformed
 
     private void ConsDineroTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsDineroTActionPerformed
-        
-        
+        FuncionesAdmi funciones = new FuncionesAdmi();
+        JOptionPane.showMessageDialog(null, "fondos del cajero: "+funciones.consultarDinero());
     }//GEN-LAST:event_ConsDineroTActionPerformed
 
     /**

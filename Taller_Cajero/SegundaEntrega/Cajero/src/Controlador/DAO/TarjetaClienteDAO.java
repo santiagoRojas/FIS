@@ -95,7 +95,7 @@ public class TarjetaClienteDAO {
             Conexion.cerrarConexion();
             return true;
         } catch (SQLException e) {
-            System.out.println("contraseña invalida");
+            System.out.println("No se pudo reactivar la tarjeta");
         }
         return false;
     }

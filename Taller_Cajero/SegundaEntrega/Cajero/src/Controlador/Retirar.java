@@ -5,6 +5,7 @@
  */
 package Controlador;
 
+import Controlador.DAO.EstadoCajeroDAO;
 import Controlador.DAO.TarjetaClienteDAO;
 import Modelo.Cliente;
 
@@ -16,10 +17,9 @@ public class Retirar {
     
     public boolean RetirarFondos(int monto, int nit) throws ClassNotFoundException{
         TarjetaClienteDAO tarjeta = new TarjetaClienteDAO();
+        EstadoCajeroDAO estado = new EstadoCajeroDAO();
+        estado.retirar(monto);
         return tarjeta.retirar(nit, monto);
     }
-    
-    public int verificarFondos(int monto , Cliente user){
-        return 0;
-    }
+
 }

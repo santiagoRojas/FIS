@@ -6,8 +6,11 @@
 package Vista;
 
 import Controlador.DAO.EstadoCajeroDAO;
+import Controlador.FuncionesAdmi;
 import Modelo.Administrador;
 import Modelo.Cliente;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,26 +20,28 @@ import javax.swing.JOptionPane;
 public class IngresarMonto extends javax.swing.JFrame {
     
     private int cantidad;
-    private Administrador admin;
+    private int admin;
     private Cliente  user;
+    private int opcion;
     /**
      * Creates new form IngresarMonto
      */
     public IngresarMonto() {
-        admin=null;
+        admin=0;
         user=null;
         initComponents();
     }
     
-    public IngresarMonto(Administrador admin) {
+    public IngresarMonto(int admin,int opcion) {
         this.admin=admin;
         user=null;
+        this.opcion= opcion;
         initComponents();
     }
     
     public IngresarMonto(Cliente user) {
         this.user=user;
-        admin=null;
+        admin=0;
         initComponents();
     }
 
@@ -112,7 +117,7 @@ public class IngresarMonto extends javax.swing.JFrame {
                 cantidadMaximaHoy= estado.consultarTopeHoy();
                 
                 if(cantidad<=cantidadMaximaHoy){
-                    IngresoContraseña ingresar = new IngresoContraseña();
+                    IngresoContraseña ingresar = new IngresoContraseña(user);
                     ingresar.setMonto(cantidad);
                     ingresar.setVisible(true);
                     this.dispose();
@@ -120,13 +125,37 @@ public class IngresarMonto extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "No se pudo realizar el retiro: Maximo retiro actual permitiido es: "+ cantidadMaximaHoy);
                 }
                 
-            }else if(admin!=null){
-                //aqui va JORGE
-                MenuAdmin opci=new MenuAdmin();
-                if(opci.getOpcion()==1){
-                    //estoy en la opcion de ingresar dinero
+            }else if(admin!=0){
+                if(opcion==1){
+                    FuncionesAdmi funcion = new FuncionesAdmi();
+                    try {
+                        boolean respuesta=funcion.ingresarDinero(cantidad);
+                        if(respuesta==true){
+                            JOptionPane.showMessageDialog(null, "dinero ingresado correctamente al cajero");
+                            MenuAdmin bv = new MenuAdmin(admin);
+                            bv.setVisible(true);
+                            this.dispose();
+                        }else{
+                            JOptionPane.showMessageDialog(null, "No se pudo ingresar el dinero");
+                        }
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(IngresarMonto.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }else{
-                    //estoy en la opcion de ingresarMaxDiario
+                    FuncionesAdmi funcion = new FuncionesAdmi();
+                    try {
+                        boolean respuesta=funcion.modificarTopeHoy(cantidad);
+                        if(respuesta==true){
+                            JOptionPane.showMessageDialog(null, "tope de hoy modificado satisfactoriamente");
+                            MenuAdmin bv = new MenuAdmin(admin);
+                            bv.setVisible(true);
+                            this.dispose();
+                        }else{
+                            JOptionPane.showMessageDialog(null, "No se pudo modificar el tope");
+                        }
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(IngresarMonto.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
                 
             }else{

@@ -101,7 +101,7 @@ public class Bienvenida extends javax.swing.JFrame {
 
         Separador.setText("-");
         getContentPane().add(Separador);
-        Separador.setBounds(40, 240, 10, 15);
+        Separador.setBounds(40, 240, 10, 14);
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Fondo.jpg"))); // NOI18N
         getContentPane().add(Fondo);
@@ -116,19 +116,23 @@ public class Bienvenida extends javax.swing.JFrame {
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
         
-        if(PrimerDigitoNIT.getText().length()==1 && RestoNIT.getText().length()==7){
-            nit=Integer.parseInt(RestoNIT.getText());
+        if(PrimerDigitoNIT.getText().length()==1 && RestoNIT.getText().length()==8){
+            nit=Integer.parseInt(PrimerDigitoNIT.getText()+RestoNIT.getText());
             tipo=Integer.parseInt(PrimerDigitoNIT.getText());
-            if(tipo==1){
+            if(tipo==2){
                 //validar si es cliente si lo 
                 Cliente user = null;
                 Consultas consult = new Consultas();
                 user=consult.ValidarTarjetaCliente(nit);
-                if(user!=null){
+                if(user!=null && user.getEstadoTarjeta()!= false){
                     MenuCliente menu=new MenuCliente(user);
                     menu.setVisible(true);
                     this.setVisible(false);
-                }else{
+                }
+                else if(user!=null && user.getEstadoTarjeta()==false){
+                    JOptionPane.showMessageDialog(null, "Lo sentimos, tajeta bloqueada, dirijase a su admin mas confiable.");
+                }
+                else{
                     JOptionPane.showMessageDialog(null, "NIT invalido");
                     JOptionPane.showMessageDialog(null, "FORMATO: X-XXXXXXX");
                 }
@@ -140,7 +144,7 @@ public class Bienvenida extends javax.swing.JFrame {
                 Consultas consult = new Consultas();
                 admin=consult.ValidarTarjetaAdmin(nit);
                 if(admin!=null){
-                    IngresoContraseña ingreso=new IngresoContraseña(admin);
+                    IngresoContraseña ingreso=new IngresoContraseña(admin.getNit());
                     ingreso.setVisible(true);
                     this.setVisible(false);
                 }else{
@@ -162,7 +166,7 @@ public class Bienvenida extends javax.swing.JFrame {
     private void RestoNITKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RestoNITKeyTyped
         char c=evt.getKeyChar();
         if(c<'0'||c>'9')evt.consume();
-        if (RestoNIT.getText().length()== 7)evt.consume();
+        if (RestoNIT.getText().length()== 8)evt.consume();
     }//GEN-LAST:event_RestoNITKeyTyped
 
     private void PrimerDigitoNITKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PrimerDigitoNITKeyTyped

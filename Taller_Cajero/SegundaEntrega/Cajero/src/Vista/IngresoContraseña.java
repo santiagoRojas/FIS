@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
 public class IngresoContraseña extends javax.swing.JFrame {
 
     private int Contra;
-    private Administrador admin;
+    private int admin;
     private Cliente user;
     private int monto;
     private int intentos;
@@ -29,20 +29,21 @@ public class IngresoContraseña extends javax.swing.JFrame {
      * Creates new form IngresoContraseña
      */
     public IngresoContraseña() {
-        admin=null;
+        admin=0;
         user=null;
         initComponents();
     }
 
-    public IngresoContraseña(Administrador admin) {
+    public IngresoContraseña(int admin) {
         this.admin=admin;
         user=null;
+        intentos=3;
         initComponents();
     }
     
     public IngresoContraseña(Cliente user) {
         this.user=user;
-        admin=null;
+        admin=0;
         monto=0;
         intentos=3;
         initComponents();
@@ -60,9 +61,9 @@ public class IngresoContraseña extends javax.swing.JFrame {
     private void initComponents() {
 
         Volver = new javax.swing.JButton();
-        Contraseña = new javax.swing.JTextField();
         Ok = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        Contraseña = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,19 +81,6 @@ public class IngresoContraseña extends javax.swing.JFrame {
         getContentPane().add(Volver);
         Volver.setBounds(140, 240, 190, 40);
 
-        Contraseña.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ContraseñaActionPerformed(evt);
-            }
-        });
-        Contraseña.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                ContraseñaKeyTyped(evt);
-            }
-        });
-        getContentPane().add(Contraseña);
-        Contraseña.setBounds(170, 150, 200, 40);
-
         Ok.setText("OK");
         Ok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +95,19 @@ public class IngresoContraseña extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(20, 30, 260, 70);
 
+        Contraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContraseñaActionPerformed(evt);
+            }
+        });
+        Contraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ContraseñaKeyTyped(evt);
+            }
+        });
+        getContentPane().add(Contraseña);
+        Contraseña.setBounds(180, 150, 130, 40);
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Digite.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, -10, 500, 360);
@@ -120,12 +121,6 @@ public class IngresoContraseña extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_VolverActionPerformed
 
-    private void ContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContraseñaKeyTyped
-        char c=evt.getKeyChar();
-        if(c<'0'||c>'9')evt.consume();
-        if (Contraseña.getText().length()== 4)evt.consume();
-    }//GEN-LAST:event_ContraseñaKeyTyped
-
     private void OkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OkActionPerformed
         if(Contraseña.getText().length()==4){
             Contra=Integer.parseInt(Contraseña.getText());
@@ -133,7 +128,7 @@ public class IngresoContraseña extends javax.swing.JFrame {
                 ValidarContraseñas consultar = new ValidarContraseñas();
                 boolean respuesta1= consultar.ValidarCliente(user.getNit(), Contra);
                 if(respuesta1==true && intentos != 0){
-                    if(monto!=0 ){
+                    if(monto>0 ){
                         boolean respuesta2;
                         Retirar retiro = new Retirar();
                         try {
@@ -153,11 +148,14 @@ public class IngresoContraseña extends javax.swing.JFrame {
                     }else{
                         JOptionPane.showMessageDialog(null, "No se han implementado mas opiciones distintas de retiro");
                     }
-                }else if(intentos==0){
+                }else if(intentos==1){
                     try {
                         respuesta1 = consultar.BloquearTarjetaCliente(user.getNit());
                         if(respuesta1==true){
                             JOptionPane.showMessageDialog(null, "Maximo de intentos permitidos: Tarjeta bloqueada");
+                            Bienvenida bv = new Bienvenida();
+                            bv.setVisible(true);
+                            this.dispose();
                             //Devolver a ventana bienvinedia
                         }else{
                             JOptionPane.showMessageDialog(null, "No se pudo bloquear la tarjeta");
@@ -171,15 +169,17 @@ public class IngresoContraseña extends javax.swing.JFrame {
                     intentos-=1;
                     JOptionPane.showMessageDialog(null, "Contraseña invalida, restan: "+intentos+" intentos");
                 }
-            }else if(admin!=null){
+            }else if(admin!=0){
                 ValidarContraseñas consultar = new ValidarContraseñas();
-                boolean respuesta1= consultar.ValidarAdministrador(admin.getNit(), Contra);
+                boolean respuesta1= consultar.ValidarAdministrador(admin, Contra);
                 if(respuesta1==true && intentos != 0){
                    MenuAdmin menu = new MenuAdmin(admin);
+                   menu.setVisible(true);
+                   this.dispose();
                    
-                }else if(intentos==0){
+                }else if(intentos==1){
                     try {
-                        respuesta1 = consultar.BloquearTarjetaAdmin(admin.getNit());
+                        respuesta1 = consultar.BloquearTarjetaAdmin(admin);
                         if(respuesta1==true){
                             JOptionPane.showMessageDialog(null, "Maximo de intentos permitidos: Tarjeta bloqueada");
                             Bienvenida bv = new Bienvenida();
@@ -212,6 +212,12 @@ public class IngresoContraseña extends javax.swing.JFrame {
     private void ContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseñaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ContraseñaActionPerformed
+
+    private void ContraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ContraseñaKeyTyped
+        char c=evt.getKeyChar();
+        if(c<'0'||c>'9')evt.consume();
+        if (Contraseña.getText().length()== 4)evt.consume();
+    }//GEN-LAST:event_ContraseñaKeyTyped
 
     /**
      * @param args the command line arguments
@@ -249,7 +255,7 @@ public class IngresoContraseña extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Contraseña;
+    private javax.swing.JPasswordField Contraseña;
     private javax.swing.JButton Ok;
     private javax.swing.JButton Volver;
     private javax.swing.JLabel jLabel1;

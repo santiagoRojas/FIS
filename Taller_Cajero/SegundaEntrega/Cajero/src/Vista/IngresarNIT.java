@@ -5,6 +5,9 @@
  */
 package Vista;
 
+import Controlador.ValidarContraseñas;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,12 +16,17 @@ import javax.swing.JOptionPane;
  */
 public class IngresarNIT extends javax.swing.JFrame {
 
-    private int primer;
-    private int resto;
+    private int nit;
+    private int admin;
     /**
      * Creates new form IngresarNIT
      */
     public IngresarNIT() {
+        initComponents();
+    }
+    
+    public IngresarNIT(int admin) {
+        this.admin=admin;
         initComponents();
     }
 
@@ -92,7 +100,7 @@ public class IngresarNIT extends javax.swing.JFrame {
     private void RestoNITKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_RestoNITKeyTyped
         char c=evt.getKeyChar();
         if(c<'0'||c>'9')evt.consume();
-        if (RestoNIT.getText().length()== 7)evt.consume();
+        if (RestoNIT.getText().length()== 8)evt.consume();
         
     }//GEN-LAST:event_RestoNITKeyTyped
 
@@ -104,11 +112,23 @@ public class IngresarNIT extends javax.swing.JFrame {
 
     private void OKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OKActionPerformed
         
-        if(PrimerDigito.getText().length()==1 && RestoNIT.getText().length()==7){
-        primer=Integer.parseInt(PrimerDigito.getText());
-        resto=Integer.parseInt(RestoNIT.getText());
+        if(PrimerDigito.getText().length()==1 && RestoNIT.getText().length()==8){
             
-            //Consultar saldo en base de datos
+            nit=Integer.parseInt(PrimerDigito.getText()+ RestoNIT.getText());
+            ValidarContraseñas val = new ValidarContraseñas();
+            try {
+                boolean respuesta = val.ReactivarTarjetas(nit);
+                if(respuesta==true){
+                    JOptionPane.showMessageDialog(null, "Se reactivo satisfactoriamente!!");
+                    MenuCliente mc = new MenuCliente();
+                    mc.setVisible(true);
+                    this.dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null, "No se reactivo satisfactoriamente!!");
+                }
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(IngresarNIT.class.getName()).log(Level.SEVERE, null, ex);
+            }
         
         }else{
             JOptionPane.showMessageDialog(null, "NIT invalido");

@@ -6,6 +6,7 @@
 package Vista;
 
 import Modelo.Cliente;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,10 +23,16 @@ public class ImpresionCliente extends javax.swing.JFrame {
         initComponents();
     }
     
+    public void Imprimir(){
+        JOptionPane.showMessageDialog(null, "Monto: "+this.monto+" Nombre: "+ this.user.getNombre()+
+                " Dinero: "+ this.user.getDinero());
+    }
+    
     public ImpresionCliente(Cliente user, int monto) {
         this.user=user;
         this.monto=monto;
         initComponents();
+        Imprimir();
     }
 
     /**

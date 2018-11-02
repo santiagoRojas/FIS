@@ -32,4 +32,9 @@ public class ValidarContraseñas {
          TarjetaAdmisDAO tarjeta = new TarjetaAdmisDAO();
         return tarjeta.bloquearTarjeta(nit);
     }
+     
+    public boolean ReactivarTarjetas(int nit) throws ClassNotFoundException{
+        TarjetaClienteDAO user = new TarjetaClienteDAO();
+        return user.reactivar(nit);
+    }
 }

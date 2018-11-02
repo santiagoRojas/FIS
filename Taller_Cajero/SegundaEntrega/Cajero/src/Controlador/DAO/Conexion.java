@@ -22,7 +22,7 @@ import java.sql.Statement;
             String driver = "org.postgresql.Driver"; 
             String connectString = "jdbc:postgresql://localhost:5432/Cajero"; 
             String user = "postgres";
-            String password = "santiago"; 
+            String password = "1030jorge670566"; 
 
             try {
                     Class.forName(driver);
