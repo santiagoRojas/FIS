@@ -5,17 +5,39 @@
  */
 package Vista;
 
+import Modelo.Administrador;
+import java.util.Date;
+
 /**
  *
  * @author Jeisson
  */
 public class ImpresionAdmin extends javax.swing.JFrame {
 
+    private int admin;
+    private int monto;
+    private String mensaje;
+    
     /**
      * Creates new form ImpresionAdmin
      */
     public ImpresionAdmin() {
         initComponents();
+    }
+    
+    public ImpresionAdmin(int admin, int monto, String mensaje) {
+        this.admin=admin;
+        this.monto=monto;
+        this.mensaje=mensaje;
+        initComponents();
+        valor.setText(Integer.toString(monto));
+        accion.setText(mensaje);
+        nitTarjeta.setText(Integer.toString(admin));
+        numCajero.setText("001");
+        Date fecha= new Date();
+        fechaHora.setText(Long.toString(fecha.getTime()));
+        
+        //Imprimir();
     }
 
     /**
@@ -27,21 +49,90 @@ public class ImpresionAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        fechaHora = new javax.swing.JTextField();
+        numCajero = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        nitTarjeta = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        valor = new javax.swing.JTextField();
+        accion = new javax.swing.JLabel();
+        imprimir = new javax.swing.JButton();
+        panel = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+
+        jLabel4.setText("HORA");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(100, 70, 40, 20);
+
+        jLabel2.setFont(new java.awt.Font("OCR A Extended", 0, 18)); // NOI18N
+        jLabel2.setText("BANCO X");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(140, 20, 140, 50);
+
+        jLabel3.setText("FECHA");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(30, 70, 40, 20);
+
+        jLabel5.setText("CAJERO");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(180, 70, 50, 20);
+
+        fechaHora.setEditable(false);
+        getContentPane().add(fechaHora);
+        fechaHora.setBounds(10, 90, 150, 30);
+
+        numCajero.setEditable(false);
+        getContentPane().add(numCajero);
+        numCajero.setBounds(180, 90, 40, 30);
+
+        jLabel6.setText("No.Tarjeta");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(10, 130, 60, 30);
+
+        nitTarjeta.setEditable(false);
+        getContentPane().add(nitTarjeta);
+        nitTarjeta.setBounds(70, 130, 160, 30);
+
+        jLabel9.setText("GRACIAS POR USAR NUESTROS SERVCIOS!");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(60, 270, 270, 20);
+
+        valor.setEditable(false);
+        getContentPane().add(valor);
+        valor.setBounds(60, 220, 170, 30);
+        getContentPane().add(accion);
+        accion.setBounds(10, 170, 370, 40);
+
+        imprimir.setText("IMPRIMIR");
+        imprimir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imprimirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(imprimir);
+        imprimir.setBounds(240, 223, 130, 30);
+
+        panel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FondoBlanco.jpg"))); // NOI18N
+        panel.setMaximumSize(new java.awt.Dimension(500, 334));
+        panel.setMinimumSize(new java.awt.Dimension(500, 334));
+        panel.setPreferredSize(new java.awt.Dimension(500, 334));
+        getContentPane().add(panel);
+        panel.setBounds(0, 0, 400, 300);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void imprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imprimirActionPerformed
+        MenuAdmin ir=new MenuAdmin(admin);
+        ir.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_imprimirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +170,18 @@ public class ImpresionAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel accion;
+    private javax.swing.JTextField fechaHora;
+    private javax.swing.JButton imprimir;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JTextField nitTarjeta;
+    private javax.swing.JTextField numCajero;
+    private javax.swing.JLabel panel;
+    private javax.swing.JTextField valor;
     // End of variables declaration//GEN-END:variables
 }

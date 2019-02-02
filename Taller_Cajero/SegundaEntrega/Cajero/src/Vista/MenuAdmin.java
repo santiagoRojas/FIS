@@ -17,6 +17,7 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     private int admin;
     private int opcion;
+    private String mensaje;
 
     public int getOpcion() {
         return opcion;
@@ -148,7 +149,11 @@ public class MenuAdmin extends javax.swing.JFrame {
 
     private void ConsDineroTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsDineroTActionPerformed
         FuncionesAdmi funciones = new FuncionesAdmi();
-        JOptionPane.showMessageDialog(null, "fondos del cajero: "+funciones.consultarDinero());
+        mensaje="Fondos del cajero: ";
+        ImpresionAdmin ia=new ImpresionAdmin(admin,funciones.consultarDinero(),mensaje);
+        ia.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_ConsDineroTActionPerformed
 
     /**

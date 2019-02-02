@@ -18,6 +18,7 @@ public class IngresarNIT extends javax.swing.JFrame {
 
     private int nit;
     private int admin;
+    private String mensaje;
     /**
      * Creates new form IngresarNIT
      */
@@ -119,8 +120,8 @@ public class IngresarNIT extends javax.swing.JFrame {
             try {
                 boolean respuesta = val.ReactivarTarjetas(nit);
                 if(respuesta==true){
-                    JOptionPane.showMessageDialog(null, "Se reactivo satisfactoriamente!!");
-                    MenuCliente mc = new MenuCliente();
+                    mensaje="Tarjeta correctamente reactivada, No.Tarjeta: ";
+                    ImpresionAdmin mc = new ImpresionAdmin(admin,nit,mensaje);
                     mc.setVisible(true);
                     this.dispose();
                 }else{

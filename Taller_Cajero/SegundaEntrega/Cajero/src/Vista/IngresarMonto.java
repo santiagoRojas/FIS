@@ -23,6 +23,7 @@ public class IngresarMonto extends javax.swing.JFrame {
     private int admin;
     private Cliente  user;
     private int opcion;
+    private String mensaje;
     /**
      * Creates new form IngresarMonto
      */
@@ -131,9 +132,9 @@ public class IngresarMonto extends javax.swing.JFrame {
                     try {
                         boolean respuesta=funcion.ingresarDinero(cantidad);
                         if(respuesta==true){
-                            JOptionPane.showMessageDialog(null, "dinero ingresado correctamente al cajero");
-                            MenuAdmin bv = new MenuAdmin(admin);
-                            bv.setVisible(true);
+                            mensaje="Dinero ingresado correctamente: ";
+                            ImpresionAdmin ia=new ImpresionAdmin(admin,Integer.parseInt(Monto.getText()),mensaje);
+                            ia.setVisible(true);
                             this.dispose();
                         }else{
                             JOptionPane.showMessageDialog(null, "No se pudo ingresar el dinero");
@@ -146,9 +147,10 @@ public class IngresarMonto extends javax.swing.JFrame {
                     try {
                         boolean respuesta=funcion.modificarTopeHoy(cantidad);
                         if(respuesta==true){
-                            JOptionPane.showMessageDialog(null, "tope de hoy modificado satisfactoriamente");
-                            MenuAdmin bv = new MenuAdmin(admin);
-                            bv.setVisible(true);
+                            
+                            mensaje="Tope diario modificado: ";
+                            ImpresionAdmin ia=new ImpresionAdmin(admin,Integer.parseInt(Monto.getText()),mensaje);
+                            ia.setVisible(true);
                             this.dispose();
                         }else{
                             JOptionPane.showMessageDialog(null, "No se pudo modificar el tope");
