@@ -5,7 +5,7 @@
  */
 package Vista;
 
-import Modelo.Administrador;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -35,7 +35,8 @@ public class ImpresionAdmin extends javax.swing.JFrame {
         nitTarjeta.setText(Integer.toString(admin));
         numCajero.setText("001");
         Date fecha= new Date();
-        fechaHora.setText(Long.toString(fecha.getTime()));
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        fechaHora.setText(sdf.format(fecha));
         
         //Imprimir();
     }

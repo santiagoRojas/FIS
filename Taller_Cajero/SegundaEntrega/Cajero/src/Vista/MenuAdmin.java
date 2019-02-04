@@ -6,8 +6,6 @@
 package Vista;
 
 import Controlador.FuncionesAdmi;
-import Modelo.Administrador;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -73,6 +71,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         ConsDineroT.setBounds(30, 160, 290, 30);
 
         ConsRetiros.setText("Consultar Retiros");
+        ConsRetiros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsRetirosActionPerformed(evt);
+            }
+        });
         getContentPane().add(ConsRetiros);
         ConsRetiros.setBounds(30, 200, 290, 30);
 
@@ -155,6 +158,12 @@ public class MenuAdmin extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_ConsDineroTActionPerformed
+
+    private void ConsRetirosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsRetirosActionPerformed
+        HistorialRegistro reti = new HistorialRegistro(admin);
+        reti.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_ConsRetirosActionPerformed
 
     /**
      * @param args the command line arguments

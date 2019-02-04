@@ -6,10 +6,13 @@
 package Controlador;
 
 
+import Controlador.DAO.HistorialDAO;
 import Controlador.DAO.TarjetaAdmisDAO;
 import Controlador.DAO.TarjetaClienteDAO;
 import Modelo.Administrador;
 import Modelo.Cliente;
+import Modelo.Registro;
+import java.util.ArrayList;
 
 /**
  *
@@ -30,6 +33,9 @@ public class Consultas {
         user = consult.consultar(nit);
         return user;
     }
-    
+    public ArrayList<Registro> consultaRegistros(String fechaInicio,String fechaFin){
+        HistorialDAO reg = new HistorialDAO();
+        return reg.consultaRegistros(fechaInicio, fechaFin);
+    }
     
 }

@@ -6,6 +6,7 @@
 package Vista;
 
 import Modelo.Cliente;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
@@ -38,7 +39,8 @@ public class ImpresionCliente extends javax.swing.JFrame {
         nitTarjeta.setText(Integer.toString(user.getNit()));
         numCajero.setText("001");
         Date fecha= new Date();
-        fechaHora.setText(Long.toString(fecha.getTime()));
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        fechaHora.setText(sdf.format(fecha));
         
         //Imprimir();
     }
