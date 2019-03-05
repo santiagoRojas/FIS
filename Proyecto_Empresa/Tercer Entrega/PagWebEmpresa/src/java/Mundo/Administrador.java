@@ -7,6 +7,15 @@ public class Administrador {
        private String apellido;
        private String correo;
        private String contrasena;
+       private int idAdministrador;
+
+    public int getIdAdministrador() {
+        return idAdministrador;
+    }
+
+    public void setIdAdministrador(int idAdministrador) {
+        this.idAdministrador = idAdministrador;
+    }
 
     public String getNombre(){
       return this.nombre;

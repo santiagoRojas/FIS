@@ -7,6 +7,37 @@ public class Usuario {
        private String apellido;
        private String correo;
        private String contrasena;
+       private boolean estadoUsuario;
+       private int telefono;
+       private int idUsuario;
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+       
+    
+
+    public int getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
+    }
+       
+    
+
+    public boolean isEstadoUsuario() {
+        return estadoUsuario;
+    }
+
+    public void setEstadoUsuario(boolean estadoUsuario) {
+        this.estadoUsuario = estadoUsuario;
+    }
 
     public String getNombre(){
       return this.nombre;

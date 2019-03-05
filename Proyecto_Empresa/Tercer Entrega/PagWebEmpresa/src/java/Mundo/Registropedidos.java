@@ -1,22 +1,33 @@
 
 package Mundo;
 
+import java.sql.Date;
+
 public class Registropedidos {
-       private int fecha;
+       private Date fecha;
        private int id_usuario;
-       private int nit_registro;
+       private int idRegistro;
        private int nit_producto;
        private String nombre_producto;
        private String nombre_usuario;
+       private int Valor;
 
-    public int getFecha(){
+    public int getValor() {
+        return Valor;
+    }
+
+    public void setValor(int Valor) {
+        this.Valor = Valor;
+    }
+
+    public Date getFecha(){
       return this.fecha;
     }
     public int getId_usuario(){
       return this.id_usuario;
     }
-    public int getNit_registro(){
-      return this.nit_registro;
+    public int getIdRegistro(){
+      return this.idRegistro;
     }
     public int getNit_producto(){
       return this.nit_producto;
@@ -28,7 +39,7 @@ public class Registropedidos {
       return this.nombre_usuario;
     }
 
-      public void setFecha(int value){
+      public void setFecha(Date value){
         this.fecha = value;
       }
 
@@ -36,8 +47,8 @@ public class Registropedidos {
         this.id_usuario = value;
       }
 
-      public void setNit_registro(int value){
-        this.nit_registro = value;
+      public void setIdRegistro(int value){
+        this.idRegistro = value;
       }
 
       public void setNit_producto(int value){
