@@ -62,7 +62,9 @@
     }
     if(nombre != null && apellido != null && contrasena != null && correo != null && telefono != null && retorno == false){
 %>
-<div class="alert alert-success">no se pudo registrar el usuario</div>
+<script type="text/javascript">
+alert("Estas Bloqueado Putoo!!");
+</script>
 <%}%>
 <body style="background-color:beige;" id="cuerpo">
 
@@ -71,13 +73,12 @@
 <font size='7'><font face="Comic Sans MS,Arial,Verdana">DIDIER'S SPORTS</font></font>
 <br>
 
-<img src="../src/java/Imagenes/principal.JPG" style="width: 600px; height: 250px;">
+<img src="Imagenes/principal.JPG" style="width: 600px; height: 250px;">
 </center>
 
 <div id="header">
 	<ul class="nav">
 		<li><a  onclick="inicio()">Inicio</a></li>
-                <li><a  href="Catalogo.jsp" >Catalogo</a></li>
 		<li><a  onclick="quienesSomos()">Quienes Somos</a>
 			<ul>
 			<li><a  onclick="mision()">Mision</a></li>
@@ -114,7 +115,7 @@ Inicio
 
 </textarea>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="../src/java/Imagenes/secundaria.jpg" style="width: 200px; height: 150px;"align="rigth">
+<img src="Imagenes/secundaria.JPG" style="width: 200px; height: 150px;"align="rigth">
 
 
 </html>

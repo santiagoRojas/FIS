@@ -109,7 +109,9 @@ public final class index1_jsp extends org.apache.jasper.runtime.HttpJspBase
     if(nombre != null && apellido != null && contrasena != null && correo != null && telefono != null && retorno == false){
 
       out.write("\n");
-      out.write("<div class=\"alert alert-success\">no se pudo registrar el usuario</div>\n");
+      out.write("<script type=\"text/javascript\">\n");
+      out.write("alert(\"Estas Bloqueado Putoo!!\");\n");
+      out.write("</script>\n");
 }
       out.write("\n");
       out.write("<body style=\"background-color:beige;\" id=\"cuerpo\">\n");
@@ -119,13 +121,12 @@ public final class index1_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<font size='7'><font face=\"Comic Sans MS,Arial,Verdana\">DIDIER'S SPORTS</font></font>\n");
       out.write("<br>\n");
       out.write("\n");
-      out.write("<img src=\"../src/java/Imagenes/principal.JPG\" style=\"width: 600px; height: 250px;\">\n");
+      out.write("<img src=\"Imagenes/principal.JPG\" style=\"width: 600px; height: 250px;\">\n");
       out.write("</center>\n");
       out.write("\n");
       out.write("<div id=\"header\">\n");
       out.write("\t<ul class=\"nav\">\n");
       out.write("\t\t<li><a  onclick=\"inicio()\">Inicio</a></li>\n");
-      out.write("                <li><a  href=\"Catalogo.jsp\" >Catalogo</a></li>\n");
       out.write("\t\t<li><a  onclick=\"quienesSomos()\">Quienes Somos</a>\n");
       out.write("\t\t\t<ul>\n");
       out.write("\t\t\t<li><a  onclick=\"mision()\">Mision</a></li>\n");
@@ -162,7 +163,7 @@ public final class index1_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("</textarea>\n");
       out.write("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n");
-      out.write("<img src=\"../src/java/Imagenes/secundaria.jpg\" style=\"width: 200px; height: 150px;\"align=\"rigth\">\n");
+      out.write("<img src=\"Imagenes/secundaria.JPG\" style=\"width: 200px; height: 150px;\"align=\"rigth\">\n");
       out.write("\n");
       out.write("\n");
       out.write("</html>\n");

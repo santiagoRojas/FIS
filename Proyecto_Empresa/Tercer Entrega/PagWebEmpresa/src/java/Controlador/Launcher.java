@@ -16,11 +16,9 @@ import javax.swing.JOptionPane;
  * @author TOSHIBA
  */
 public class Launcher {
-    public static void main(String[] args) {
-         Consultar cons=new Consultar();
-            ArrayList<Registropedidos> admi =  null;
-            String text;
-            admi = cons.consultarPedidos();
-            JOptionPane.showMessageDialog(null, admi.get(0).getNombre_producto());
+    public static void main(String[] args) throws ClassNotFoundException {
+         Registrar cons=new Registrar();
+         cons.RegistrarUsuario("leon","1234", "leon@hotmail.com", true, "erogo", 1233);
+            
     }
 }

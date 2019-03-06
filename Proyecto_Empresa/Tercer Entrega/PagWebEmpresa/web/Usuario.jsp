@@ -73,7 +73,7 @@ if(user != null){
 Usuario   <%= nombre %> <%= apellido %> <form method="post" action="index1.jsp"><input type="submit" name="sub1" value="cerrar sesion" "></form>
 <% }else if (admi !=null){ %> 
 Administrador   <%= nombre %> <%= apellido %> <form method="post" action="index1.jsp"><input type="submit" name="sub1" value="cerrar sesion" "></form>
-<% }/*else{ response.sendRedirect("index1.jsp");}*/ %>
+<% }else{ response.sendRedirect("index1.jsp");} %>
 
 <script src="moderador.js"></script>
 <title> Didier´s Sports</title>
@@ -120,7 +120,7 @@ Administrador   <%= nombre %> <%= apellido %> <form method="post" action="index1
 <font size='7'><font face="Comic Sans MS,Arial,Verdana">DIDIER'S SPORTS</font></font>
 <br>
 
-<img src="../src/java/Imagenes/principal.JPG" style="width: 600px; height: 250px;">
+<img src="Imagenes/principal.JPG" style="width: 600px; height: 250px;">
 </center>
 
 <div id="header">
@@ -141,11 +141,17 @@ Administrador   <%= nombre %> <%= apellido %> <form method="post" action="index1
 		</li>
 		<li><a  onclick="contactenos()">Contactenos</a></li>
 		
-
+<br> <br><br> <br><br> <br><br>
 <h1 id="titulo" >
 Inicio
 
 </h1>
+                <br><br>
+<% 
+ArrayList<Registropedidos> pedidos = null;
+Registropedidos pedido = null;
+if(admi != null){
+%>
 <form method="post" action="Usuario.jsp">
 <input type="hidden" name="correo" value="<%= correo %>">
 <input type="hidden" name="clave" value="<%= contrasena %>">
@@ -154,9 +160,7 @@ Inicio
 </form>
 <textarea id="textToEncode" style="width: 49%; height: 200px;" readonly>
 <% 
-ArrayList<Registropedidos> pedidos = null;
-Registropedidos pedido = null;
-if(pedi != null && admi != null){
+    if(pedi != null){
     Consultar con = new Consultar();
     pedidos = con.consultarPedidos();
     
@@ -176,11 +180,21 @@ String date = simpleDateFormat.format(pedido.getFecha());
 |Fecha de pedido:<%= date%>|
 <%        
     }
+    }
 }
+
 %>
 </textarea>
+<%
+if(user != null ){
+%>
+<textarea id="textToEncode" style="width: 49%; height: 200px;" readonly>
+</textarea>
+<% 
+}
+%>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="../src/java/Imagenes/secundaria.jpg" style="width: 200px; height: 150px;"align="rigth">
+<img src="Imagenes/secundaria.JPG" style="width: 200px; height: 150px;"align="rigth">
 <% if (admi !=null){ %> 
 <li><input type="checkbox" name="c1" onclick="showMe('div1', this)">   Bloquear Usuario</li>
 		

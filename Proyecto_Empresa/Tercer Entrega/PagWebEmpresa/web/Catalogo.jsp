@@ -21,11 +21,11 @@
     </head>
     <body>
 <%!
-            String correo;
-            String contrasena;
+            String correo ="";
+            String contrasena="";
             int idProducto = 0;
             int idUsuario = 0;
-            String pedi = null;
+            String pedi = "";
 %>
 <% 
     pedi = request.getParameter("pedidos");
@@ -116,7 +116,7 @@ Administrador   <%= nombre %> <%= apellido %> <form method="post" action="index1
 <font size='7'><font face="Comic Sans MS,Arial,Verdana">DIDIER'S SPORTS</font></font>
 <br>
 
-<img src="../src/java/Imagenes/principal.JPG" style="width: 600px; height: 250px;">
+<img src="Imagenes/principal.JPG" style="width: 600px; height: 250px;">
 </center>
 
 <div id="header">
@@ -182,6 +182,9 @@ Catalogo
 <% 
     }
     }
+ArrayList<Registropedidos> pedidos = null;
+Registropedidos pedido = null;
+if(pedi != "" && admi != null){
 %>
 <form method="post" action="Catalogo.jsp">
 <input type="hidden" name="correo" value="<%= correo %>">
@@ -191,9 +194,8 @@ Catalogo
 </form>
 <textarea id="textToEncode" style="width: 49%; height: 200px;" readonly>
 <% 
-ArrayList<Registropedidos> pedidos = null;
-Registropedidos pedido = null;
-if(pedi != null && admi != null){
+
+
     Consultar cons = new Consultar();
     pedidos = cons.consultarPedidos();
     
@@ -217,7 +219,7 @@ String date = simpleDateFormat.format(pedido.getFecha());
 %>
 </textarea>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="../src/java/Imagenes/secundaria.jpg" style="width: 200px; height: 150px;"align="rigth">
+<img src="../src/java/Imagenes/secundaria.JPG" style="width: 200px; height: 150px;"align="rigth">
 
 <% if (admi !=null){ %> 
 <li><input type="checkbox" name="c1" onclick="showMe('div1', this)">   Bloquear Usuario</li>

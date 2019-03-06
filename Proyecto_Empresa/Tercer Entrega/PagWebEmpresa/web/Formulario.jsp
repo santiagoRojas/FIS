@@ -46,7 +46,7 @@
 	<form method="post" action="index1.jsp">
            <input type="hidden" name="registroForm"/>
            <br>
-          Nombres y Apellidos:<br>
+          Nombres:<br>
           <input type="text" name="nombre" value="">
           <br><br>
           Apellido:<br>

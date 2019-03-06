@@ -26,9 +26,9 @@ public class UsuarioDAO {
     }
     
     public boolean agregarUsuario(Usuario usuario) throws ClassNotFoundException{
-        String script = "INSERT INTO public.\"Usuario\"(\n" +
-"	 correo, contrasena, nombre, apellido, telefono, \"estadoUsuario\")\n" +
-"	VALUES ('"+usuario.getCorreo()+"', '"+usuario.getContrasena()+"','"+usuario.getNombre()+"' , '"+usuario.getApellido()+"',"+usuario.getTelefono()+", "+usuario.isEstadoUsuario()+")";
+            String script = "INSERT INTO public.\"Usuario\"(\n" +
+    "	 correo, contrasena, \"nombreUsuario\", apellido, telefono, \"estadoUsuario\")\n" +
+    "	VALUES ('"+usuario.getCorreo()+"', '"+usuario.getContrasena()+"','"+usuario.getNombre()+"' , '"+usuario.getApellido()+"',"+usuario.getTelefono()+", "+usuario.isEstadoUsuario()+")";
         try {
             con = Conexion.getConexion();
             st = con.createStatement();

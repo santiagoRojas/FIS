@@ -76,7 +76,7 @@ public class HistorialRegistro {
         return false;
     }
     
-    public boolean generarPedido(int idUsuario, int idProducto){
+    public boolean generarPedido(int idProducto, int idUsuario){
         java.util.Date fecha = new Date();
         try {
             con = Conexion.getConexion();
