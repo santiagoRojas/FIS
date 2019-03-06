@@ -29,13 +29,12 @@ public class HistorialRegistro {
         st = null;
         rs=null;
     }
-    public ArrayList<Registropedidos> consultaPedidos(String fechaInicio,String fechaFin){
+    public ArrayList<Registropedidos> consultaPedidos(){
         registros = null;
-        String consulta = "SELECT \"idregistro\",\"fecha\",\"idUsuario\",\"nitProducto\",\"Producto\".\"nombre\",\"Usuario\".\"nombre\",\"Producto\".\"valor\" \n" +
+        String consulta = "SELECT \"idregistro\",\"fecha\",\"Usuario\".\"idusuario\",\"nitProducto\",\"Producto\".\"nombre\",\"Usuario\".\"nombreUsuario\",\"Producto\".\"valor\"\n" +
 "FROM \"RegistroPedidos\",\"Usuario\",\"Producto\"\n" +
-"WHERE \"fecha\" BETWEEN '"+fechaInicio+"' AND '"+fechaFin+"'\n" +
-"and \"RegistroPedidos\".\"idUsuario\" = \"Usuario\".\"idUsuario\"\n" +
-"and \"RegistroPedidos\".\"nitProducto\" = \"Producto\".\"nitProducto\"";
+"WHERE \"RegistroPedidos\".\"idusuario\" = \"Usuario\".\"idusuario\"\n" +
+"and \"RegistroPedidos\".\"idproducto\" = \"Producto\".\"idproducto\"";
         try {
             con = Conexion.getConexion();
             st = con.createStatement();
@@ -47,8 +46,8 @@ public class HistorialRegistro {
                 registro.setFecha(rs.getDate("fecha"));
                 registro.setId_usuario(rs.getInt("idUsuario"));
                 registro.setNit_producto(rs.getInt("nitProducto"));
-                registro.setNombre_producto(rs.getString("Producto.nombre"));
-                registro.setNombre_usuario(rs.getString("Usuario.nombre"));
+                registro.setNombre_producto(rs.getString("nombre"));
+                registro.setNombre_usuario(rs.getString("nombreUsuario"));
                 registro.setValor(rs.getInt("valor"));
                 registros.add(registro);
             }

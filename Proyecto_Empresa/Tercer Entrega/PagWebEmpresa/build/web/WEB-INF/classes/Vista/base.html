@@ -1,0 +1,97 @@
+<html align="center">
+	<head>
+		<script type="text/javascript">
+		
+			function mostrarSomos(){
+				document.getElementById('somos').style.display = "block ";
+			}
+			
+			function mostrarCatalogo(){
+				document.getElementById('catalogo').style.display = "block";
+			}
+			
+			function mostrarContacto(){
+				document.getElementById('contacto').style.display = " block";
+			}
+			
+		</script>
+		
+		<style type="text/css">
+			body {color: purple}
+			body{background-color: #d8da3d}
+			
+			
+		</style>
+  
+		<table align=right border="2"style="background-color:#ffffff;">
+			
+				<td colspan="2" align="center">
+					<form >
+						<input type="submit" value="Quienes somos" onclick="mostrarSomos()"/>
+					</form >
+				</td>
+				<td>
+					<form>
+						<input type="submit" value="Catalogo" onclick="mostrarCatalogo()" />
+					</form>
+				</td>
+				<td>
+					<form>
+						<input type="submit" value="Contactenos" onclick="mostrarContacto()" />
+					</form>
+				</td>
+				
+		</table> 
+	</head>
+	<body >
+		<IMG SRC="imagenes/cabeza.jpg"
+		<h><FONT SIZE=50> DIDIER'S SPORTS!!!!</FONT> </h>
+		
+		<DIV id="SOMOS" style='display:none;'>
+			<h2>HOLA</h2>
+			<section id=" info" //variable a modificar </section>
+		</DIV>
+		
+		<DIV id="contacto" style='display:none;'>
+			<h2>HOLA</h2>
+			<section id=" info" //variable a modificar </section>
+		</DIV>
+		
+		<DIV id="catalogo" style='display:none;'>
+			<h2>HOLA</h2>
+			<section id=" info" //variable a modificar </section>
+		</DIV>
+		
+		<table align=right border="2"style="background-color:#ffffff;">
+			<tr>
+				<td colspan="2" align="center">
+					Datos
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Usuario
+				</td>
+				<td>
+				<input type="text" id="usuario">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Contraseña
+				</td>
+				<td>
+					<input type="text" id="contraseña"
+				</td>
+			</tr>
+			
+			<tr>
+				<td colspan="2" align="center">
+					<form action="index 2.html">
+						<input type="submit" value="continuar" />
+					</form action>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

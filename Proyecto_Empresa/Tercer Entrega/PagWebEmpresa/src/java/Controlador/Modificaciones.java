@@ -1,3 +1,4 @@
+package Controlador;
 
 import Controlador.DAO.HistorialRegistro;
 import Controlador.DAO.ProductosDAO;
@@ -23,7 +24,7 @@ public class Modificaciones {
             env3 = null;
 	}
 
-	public boolean agregarProducto(String descripcion, ImageIcon foto, int nit, String nombre, String tipo, int valor) throws ClassNotFoundException{
+	public boolean agregarProducto(String descripcion, String foto, int nit, String nombre, String tipo, int valor) throws ClassNotFoundException{
             Producto producto = new Producto();
             producto.setDescripcion(descripcion);
             producto.setFoto(foto);

@@ -1,21 +1,27 @@
 
 package Mundo;
 
-import javax.swing.ImageIcon;
-
 public class Producto {
+       private int idProducto;
        private String descripcion;
        private int nit;
        private int valor;
        private String nombre;
        private String tipoo;
-       private ImageIcon foto;
+       private String foto;
 
-    public ImageIcon getFoto() {
+    public int getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
+    }
+    public String getFoto() {
         return foto;
     }
 
-    public void setFoto(ImageIcon imagen) {
+    public void setFoto(String imagen) {
         this.foto = imagen;
     }
 

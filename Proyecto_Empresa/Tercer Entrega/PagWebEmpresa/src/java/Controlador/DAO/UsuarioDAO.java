@@ -59,7 +59,7 @@ public class UsuarioDAO {
     public Usuario consultarUsuario(String correo, String contraseña){
         Usuario usuario = null;
         String script = "SELECT * FROM public.\"Usuario\" \n" +
-"WHERE \"correo\" = '"+correo+"' \"contrasena\" = '"+contraseña+"'";
+"WHERE \"correo\" = '"+correo+"' and \"contrasena\" = '"+contraseña+"'";
         try {
             con = Conexion.getConexion();
             st = con.createStatement();
@@ -68,11 +68,11 @@ public class UsuarioDAO {
                 usuario = new Usuario();
                 usuario.setIdUsuario(rs.getInt("idUsuario"));
                 usuario.setTelefono(rs.getInt("telefono"));
-                usuario.setNombre(rs.getString("nombre"));
+                usuario.setNombre(rs.getString("nombreUsuario"));
                 usuario.setApellido(rs.getString("apellido"));
                 usuario.setContrasena(rs.getString("contrasena"));
                 usuario.setCorreo(rs.getString("correo"));
-                usuario.setEstadoUsuario(rs.getBoolean("estadoTarjeta"));
+                usuario.setEstadoUsuario(rs.getBoolean("estadoUsuario"));
             }
             st.close();
             Conexion.cerrarConexion();

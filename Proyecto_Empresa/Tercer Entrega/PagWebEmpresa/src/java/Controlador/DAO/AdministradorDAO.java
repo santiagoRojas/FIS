@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -26,10 +26,11 @@ public class AdministradorDAO {
         rs=null;
     }
     
-    public Administrador consultarUsuario(String correo, String contraseña){
+    public Administrador consultarAdministrador (String correo, String contraseña){
+        
         Administrador administrador = null;
-        String script = "SELECT * FROM public.\"Usuario\" \n" +
-"WHERE \"correo\" = '"+correo+"' \"contrasena\" = '"+contraseña+"'";
+        String script = "SELECT * FROM public.\"Administrador\" \n" +
+"WHERE \"correo\" = '"+correo+"' and \"contrasena\" = '"+contraseña+"'";
         try {
             con = Conexion.getConexion();
             st = con.createStatement();

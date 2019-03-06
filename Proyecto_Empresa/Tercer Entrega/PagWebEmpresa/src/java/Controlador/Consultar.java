@@ -1,3 +1,5 @@
+package Controlador;
+
 
 import Controlador.DAO.AdministradorDAO;
 import Controlador.DAO.HistorialRegistro;
@@ -29,14 +31,15 @@ public class Consultar {
 
 
 	public Administrador consultarAdministrador(String correo, String contrasena){
+            
             env4 = new AdministradorDAO();
-		return env4.consultarUsuario(correo, contrasena);
+		return env4.consultarAdministrador(correo, contrasena);
 	}
 
 
-	public ArrayList<Registropedidos> consultarPedidos(String fechaInicio, String fechaFin){
+	public ArrayList<Registropedidos> consultarPedidos(){
             env3 = new HistorialRegistro();
-		return env3.consultaPedidos(fechaInicio, fechaFin);
+		return env3.consultaPedidos();
 	}
 
 

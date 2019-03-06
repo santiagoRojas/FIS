@@ -2,6 +2,23 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/TOSHIBA/Downloads/FIS/FIS-master/Proyecto_Empresa/Tercer%20Entrega/PagWebEmpresa/web/Formulario.jsp</file>
+            <file>file:/C:/Users/TOSHIBA/Downloads/FIS/FIS-master/Proyecto_Empresa/Tercer%20Entrega/PagWebEmpresa/src/java/Controlador/Registrar.java</file>
+            <file>file:/C:/Users/TOSHIBA/Downloads/FIS/FIS-master/Proyecto_Empresa/Tercer%20Entrega/PagWebEmpresa/src/java/Controlador/Launcher.java</file>
+            <file>file:/C:/Users/TOSHIBA/Downloads/FIS/FIS-master/Proyecto_Empresa/Tercer%20Entrega/PagWebEmpresa/src/java/Mundo/Producto.java</file>
+            <file>file:/C:/Users/TOSHIBA/Downloads/FIS/FIS-master/Proyecto_Empresa/Tercer%20Entrega/PagWebEmpresa/src/java/Mundo/Registropedidos.java</file>
+            <file>file:/C:/Users/TOSHIBA/Downloads/FIS/FIS-master/Proyecto_Empresa/Tercer%20Entrega/PagWebEmpresa/src/java/Controlador/DAO/AdministradorDAO.java</file>
+            <file>file:/C:/Users/TOSHIBA/Downloads/FIS/FIS-master/Proyecto_Empresa/Tercer%20Entrega/PagWebEmpresa/web/Usuario.jsp</file>
+            <file>file:/C:/Users/TOSHIBA/Downloads/FIS/FIS-master/Proyecto_Empresa/Tercer%20Entrega/PagWebEmpresa/src/java/Controlador/DAO/UsuarioDAO.java</file>
+            <file>file:/C:/Users/TOSHIBA/Downloads/FIS/FIS-master/Proyecto_Empresa/Tercer%20Entrega/PagWebEmpresa/src/java/Controlador/DAO/ProductosDAO.java</file>
+            <file>file:/C:/Users/TOSHIBA/Downloads/FIS/FIS-master/Proyecto_Empresa/Tercer%20Entrega/PagWebEmpresa/src/java/Controlador/DAO/HistorialRegistro.java</file>
+            <file>file:/C:/Users/TOSHIBA/Downloads/FIS/FIS-master/Proyecto_Empresa/Tercer%20Entrega/PagWebEmpresa/web/index.html</file>
+            <file>file:/C:/Users/TOSHIBA/Downloads/FIS/FIS-master/Proyecto_Empresa/Tercer%20Entrega/PagWebEmpresa/web/moderador.js</file>
+            <file>file:/C:/Users/TOSHIBA/Downloads/FIS/FIS-master/Proyecto_Empresa/Tercer%20Entrega/PagWebEmpresa/src/java/Controlador/Modificaciones.java</file>
+            <file>file:/C:/Users/TOSHIBA/Downloads/FIS/FIS-master/Proyecto_Empresa/Tercer%20Entrega/PagWebEmpresa/web/index1.jsp</file>
+            <file>file:/C:/Users/TOSHIBA/Downloads/FIS/FIS-master/Proyecto_Empresa/Tercer%20Entrega/PagWebEmpresa/web/Catalogo.jsp</file>
+            <file>file:/C:/Users/TOSHIBA/Downloads/FIS/FIS-master/Proyecto_Empresa/Tercer%20Entrega/PagWebEmpresa/src/java/Controlador/Consultar.java</file>
+        </group>
     </open-files>
 </project-private>

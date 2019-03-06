@@ -7,15 +7,12 @@ package Controlador.DAO;
 
 import Controlador.Conexion.Conexion;
 import Mundo.Producto;
-import java.awt.image.BufferedImage;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -36,7 +33,6 @@ public class ProductosDAO {
         productos = null;
         String consulta = "SELECT * FROM public.\"Producto\" ";
         try {
-            InputStream is;
             con = Conexion.getConexion();
             st = con.createStatement();
             rs = st.executeQuery(consulta);
@@ -49,9 +45,8 @@ public class ProductosDAO {
                 producto.setTipoo(rs.getString("tipo"));
                 producto.setDescripcion(rs.getString("descripcion"));
                 producto.setValor(rs.getInt("valor"));
-                is = rs.getBinaryStream("foto");
-                BufferedImage bi = ImageIO.read(is);
-                producto.setFoto(new ImageIcon(bi));
+                producto.setFoto(rs.getString("foto"));
+                producto.setIdProducto(rs.getInt("idProducto"));
                 productos.add(producto);
             }
             st.close();
